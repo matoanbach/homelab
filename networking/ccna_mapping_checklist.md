@@ -1,0 +1,70 @@
+# CCNA Study Tracker — Jeremy Course → Cisco OCG Mapping
+
+> Check off each day as you finish the matching OCG reading/labs.
+
+## Progress Checklist
+- [ ] **Day 1 – Network Devices** → V1:ch1 – Introduction to TCP/IP Networking; V1:ch2 – Fundamentals of Ethernet LANs; V2:ch18 – LAN Architectures (extra); V2:ch19 – WAN Architectures (extra)
+- [ ] **Day 2 – Interfaces & Cables** → V1:ch2 – Ethernet media & cabling; V1:Appendix A – Numeric Reference Tables
+- [ ] **Day 3 – OSI Model & TCP/IP Suite** → V1:ch1 – Intro/Models; V2:ch5 – Transport (TCP/UDP) & common apps
+- [ ] **Day 4 – Intro to the CLI** → V1:ch4 – Using the Command-Line Interface
+- [ ] **Day 5 – Ethernet LAN Switching (part 1)** → V1:ch5 – Analyzing Ethernet LAN Switching
+- [ ] **Day 6 – Ethernet LAN Switching (part 2)** → V1:ch6 – Configuring Basic Switch Management
+- [ ] **Day 7 – IPv4 Addressing (part 1)** → V1:ch11 – Perspectives on IPv4 Subnetting; V1:ch12 – Analyzing Classful IPv4 Networks
+- [ ] **Day 8 – IPv4 Addressing (part 2)** → V1:ch13 – Analyzing Subnet Masks; V1:ch14 – Analyzing Existing Subnets; V1:ch15 – VLSM & design
+- [ ] **Day 9 – Switch Interfaces** → V1:ch7 – Configuring and Verifying Switch Interfaces
+- [ ] **Day 10 – The IPv4 Header** → V1:ch1 – IP packet/header fundamentals
+- [ ] **Day 11 – Routing Fundamentals & Static Routing** → V1:ch3 – Fundamentals of WANs and IP Routing; V1:ch16 – Operating; V1:ch17 – Config IPv4 Addresses & Static Routes
+- [ ] **Day 12 – The Life of a Packet** → V1:ch17 – Forwarding/static; V1:ch18 – IP Routing in the LAN
+- [ ] **Day 13 – Subnetting (part 1)** → V1:ch11 – Perspectives on IPv4 Subnetting
+- [ ] **Day 14 – Subnetting (part 2)** → V1:ch12 – Analyzing Classful IPv4 Networks; V1:ch13 – Analyzing Subnet Masks
+- [ ] **Day 15 – Subnetting (part 3 - VLSM)** → V1:ch15 – VLSM & design
+- [ ] **Day 16 – VLANs (part 1)** → V1:ch8 – Implementing Ethernet VLANs
+- [ ] **Day 17 – VLANs (part 2)** → V1:ch8 – Implementing Ethernet VLANs
+- [ ] **Day 18 – VLANs (part 3)** → V1:ch8 – Implementing Ethernet VLANs
+- [ ] **Day 19 – DTP & VTP** → V1:ch8 – VLAN context (legacy/extra)
+- [ ] **Day 20 – Spanning Tree Protocol (part 1)** → V1:ch9 – STP Concepts
+- [ ] **Day 21 – Spanning Tree Protocol (part 2)** → V1:ch9 – STP Concepts
+- [ ] **Day 22 – Rapid Spanning Tree Protocol (RSTP)** → V1:ch10 – RSTP & EtherChannel Configuration
+- [ ] **Day 23 – EtherChannel** → V1:ch10 – RSTP & EtherChannel Configuration
+- [ ] **Day 24 – Dynamic Routing (overview)** → V1:ch18 – IP Routing in the LAN
+- [ ] **Day 25 – RIP & EIGRP (concepts)** → V2:Appendix – Legacy overview (context only)
+- [ ] **Day 26 – OSPF (part 1)** → V1:ch19 – Understanding OSPF Concepts
+- [ ] **Day 27 – OSPF (part 2)** → V1:ch20 – Implementing OSPF
+- [ ] **Day 28 – OSPF (part 3)** → V1:ch21 – OSPF Network Types and Neighbors
+- [ ] **Day 29 – First Hop Redundancy Protocols** → V2:ch16 – FHRPs (HSRP/VRRP/GLBP)
+- [ ] **Day 30 – TCP & UDP** → V2:ch5 – Transport & common applications
+- [ ] **Day 31 – IPv6 (part 1)** → V1:ch22 – Fundamentals of IPv6
+- [ ] **Day 32 – IPv6 (part 2)** → V1:ch23 – IPv6 Addressing and Subnetting
+- [ ] **Day 33 – IPv6 (part 3)** → V1:ch24 – Implementing IPv6 Addressing on Routers; V1:ch25 – Implementing IPv6 Routing
+- [ ] **Day 34 – Standard ACLs** → V2:ch6 – Basic IPv4 ACLs
+- [ ] **Day 35 – Extended ACLs** → V2:ch7 – Named/Extended ACLs; V2:ch8 – Applied ACLs
+- [ ] **Day 36 – CDP & LLDP** → V2:ch13 – Device Management Protocols (CDP/LLDP/NTP/Syslog)
+- [ ] **Day 37 – Network Time Protocol (NTP)** → V2:ch13 – Device Management Protocols
+- [ ] **Day 38 – Domain Name System (DNS)** → V2:ch5 – Common applications incl. DNS
+- [ ] **Day 39 – Dynamic Host Configuration Protocol (DHCP)** → V1:ch19 – Host Addressing & DHCP; V2:ch12 – DHCP Snooping (security)
+- [ ] **Day 40 – Simple Network Management Protocol (SNMP)** → V2:ch17 – SNMP/FTP/TFTP & mgmt services
+- [ ] **Day 41 – Syslog** → V2:ch13 – Device Management Protocols
+- [ ] **Day 42 – Secure Shell (SSH)** → V2:ch10 – Securing Network Devices (SSH/etc.)
+- [ ] **Day 43 – FTP & TFTP** → V2:ch17 – SNMP/FTP/TFTP & mgmt services
+- [ ] **Day 44 – Network Address Translation (NAT) (part 1)** → V2:ch14 – NAT
+- [ ] **Day 45 – Network Address Translation (NAT) (part 2)** → V2:ch14 – NAT
+- [ ] **Day 46 – Quality of Service (QoS) (part 1)** → V2:ch15 – QoS
+- [ ] **Day 47 – Quality of Service (QoS) (part 2)** → V2:ch15 – QoS
+- [ ] **Day 48 – Security Fundamentals** → V2:ch9 – Security Architectures
+- [ ] **Day 49 – Port Security** → V2:ch11 – Switch Port Security
+- [ ] **Day 50 – DHCP Snooping** → V2:ch12 – DHCP Snooping & DAI
+- [ ] **Day 51 – Dynamic ARP Inspection (DAI)** → V2:ch12 – DHCP Snooping & DAI
+- [ ] **Day 52 – LAN Architectures** → V2:ch18 – LAN Architectures
+- [ ] **Day 53 – WAN Architectures** → V2:ch19 – WAN Architectures
+- [ ] **Day 54 – Virtualization & Cloud** → V2:ch20 – Cloud & Virtualization
+- [ ] **Day 55 – Wireless Fundamentals** → V1:ch26 – Fundamentals of Wireless Networks
+- [ ] **Day 56 – Wireless Architectures** → V1:ch27 – Analyzing Cisco Wireless Architectures
+- [ ] **Day 57 – Wireless Security** → V1:ch28 – Securing Wireless Networks
+- [ ] **Day 58 – Wireless Configuration** → V1:ch29 – Building/Configuring a Wireless LAN
+- [ ] **Day 59 – Intro to Network Automation** → V2:ch21 – Controller-Based Networking
+- [ ] **Day 60 – JSON, XML, & YAML** → V2:ch23 – REST & JSON; V2:ch24 – Automation with Ansible/Terraform (YAML)
+- [ ] **Day 61 – REST APIs** → V2:ch23 – REST & JSON
+- [ ] **Day 62 – Software-Defined Networking (SDN)** → V2:ch21 – Controller-Based Networking; V2:ch22 – Cisco SD-Access/SDN solutions
+- [ ] **Day 63 – Ansible, Puppet, & Chef** → V2:ch24 – Automation & Orchestration (Ansible primary)
+- [ ] **Mega Lab: Complete Network Configuration** → V1/V2:Mixed – Capstone practice across topics
+- [ ] **Bonus: Recommended Resources** → —:— – External resources
