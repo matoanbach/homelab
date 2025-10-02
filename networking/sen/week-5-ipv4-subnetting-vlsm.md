@@ -32,16 +32,16 @@
 - These smaller networks are called `subnetworks` or `subnets`.
 
 ### CIDR Notation
-| Dotted Decimal     | CIDR Notation |
-|--------------------|---------------|
-| 255.255.255.128    | /25           |
-| 255.255.255.192    | /26           |
-| 255.255.255.224    | /27           |
-| 255.255.255.240    | /28           |
-| 255.255.255.248    | /29           |
-| 255.255.255.252    | /30           |
-| 255.255.255.254    | /31           |
-| 255.255.255.255    | /32           |
+| Dotted Decimal  | CIDR Notation |
+|-----------------|---------------|
+| 255.255.255.128 | /25           |
+| 255.255.255.192 | /26           |
+| 255.255.255.224 | /27           |
+| 255.255.255.240 | /28           |
+| 255.255.255.248 | /29           |
+| 255.255.255.252 | /30           |
+| 255.255.255.254 | /31           |
+| 255.255.255.255 | /32           |
 
 ### Subnetting Trick
 **Subnet:** `192.168.1.192/26`
@@ -49,7 +49,7 @@
 #### Binary Breakdown of Last Octet (192)
 | Bit Value | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 |-----------|-----|----|----|----|---|---|---|---|
-| Bit State |  1  |  1 |  0 |  0 | 0 | 0 | 0 | 0 |
+| Bit State | 1   | 1  | 0  | 0  | 0 | 0 | 0 | 0 |
 
 #### Portion Split
 - **Network Portion:** First 26 bits → `192.168.1.192`  
@@ -110,3 +110,162 @@
 - This means that all of the subnets use the same prefix length (ie. subnetting a class C network into 4 subnets using `\24`)
 - VLSM (Variable-Length Subnet Masks) is the process of creating subnets of different sizes, to make your use of network addresses more efficient.
 - VLSM is more complicated than FLSM, but it's easy if you follow the steps correctly.
+
+## DHCP
+- DHCP is used to allow hosts to automatically/dynamically learn various aspects of their network configuration, such as IP addresses, subnet mask, default gateway, DNS Server, etc, without manual/static ocnfiguration.
+- It is an essential part of modern networks.
+    - When you connect a phone/laptop to WiFi, do you ask the network admin which IP address, subnet mask, default gateway, etc, the phone/laptop should use?
+- Typically used for `client devices` such as workstation (PCs), phones, etc.
+- Devices such as routers, servers, etc, are usually manually configured.
+- In small networks (such as home networks) the router typically acts as the DHCP server for hosts in LAN.
+- In larger networks, the DHCP server is usually a Windows/Linux server.
+
+```bash
+ipconfig /all
+ipconfig /release
+ipconfig /renew
+```
+
+### DHCP D-O-R-A
+| Type     | Directrion       | Com                  |
+|----------|------------------|----------------------|
+| Discover | Client -> Server | Broadcast            |
+| Offer    | Server -> Client | Broadcast or Unicast |
+| Request  | Client -> Server | Broadcast            |
+| Ack      | Server -> Client | Broadcast or Unicast |
+| Release  | Client -> Server | Unicast              |
+
+### DHCP Relay
+- Some network engineers might choose to configure each router to ac as the DHCP server.
+- However, large enterprises often choose to use a centralized DHCP server.
+- If the server is centralized, it won't receive the DHCP clients' broadcast DHCP messages. (Broadcast messages don't leave the local subnet)
+- To fix this, you can configure a router to act as a `DHCP relay agent`.
+- The router will forward the clients' broadcast DHCP messages to the remote DHCP server as unicast messages.
+
+
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w5.1.png"/>
+
+# DHCP Server Configuration in IOS
+
+## Commands
+
+```
+R1(config)#ip dhcp excluded-address 192.168.1.1 192.168.1.10
+```
+- Specify a range of addresses that **won’t** be given to DHCP clients.
+
+```
+R1(config)#ip dhcp pool LAB_POOL
+```
+- Create a DHCP pool.
+
+```
+R1(dhcp-config)#network 192.168.1.0 ?
+/nn or A.B.C.D  Network mask or prefix length <cr>
+R1(dhcp-config)#network 192.168.1.0 /24
+```
+- Specify the subnet of addresses to be assigned to clients (except the excluded addresses).
+
+```
+R1(dhcp-config)#dns-server 8.8.8.8
+```
+- Specify the DNS server that DHCP clients should use.
+
+```
+R1(dhcp-config)#domain-name jeremysitlab.com
+```
+- Specify the domain name of the network (ie. PC1 = pc1.jeremysitlab.com).
+
+```
+R1(dhcp-config)#default-router 192.168.1.1
+```
+- Specify the default gateway.
+
+```
+R1(dhcp-config)#lease 0 5 30
+
+R1# show ip dhcp binding
+```
+- Specify the lease time.  
+  - Format: `lease days hours minutes`  
+  - Or use: `lease infinite`
+
+# DHCP Relay Agent Configuration in IOS
+
+## Commands
+
+```
+R1(config)#interface g0/1
+```
+- Configure the interface connected to the subnet of the client devices.
+
+```
+R1(config-if)#ip helper-address 192.168.10.10
+```
+- Configure the IP address of the DHCP server as the 'helper' address.
+
+```
+R1(config-if)#do show ip interface g0/1
+GigabitEthernet0/1 is up, line protocol is up
+  Internet address is 192.168.1.1/24
+  Broadcast address is 255.255.255.255
+  Address determined by non-volatile memory
+  MTU is 1500 bytes
+  Helper address is 192.168.10.10
+
+[output omitted]
+```
+
+# DHCP Client Configuration in IOS
+
+## Commands
+
+```
+R2(config)#interface g0/1
+```
+- Configure the interface.
+
+```
+R2(config-if)#ip address dhcp
+```
+- Use the `ip address dhcp` mode to tell the router to use DHCP to learn its IP address.
+
+```
+R2(config-if)#do sh ip interface g0/1
+GigabitEthernet0/1 is up, line protocol is up
+  Internet address is 192.168.10.1/24
+  Broadcast address is 255.255.255.255
+  Address determined by DHCP
+
+[output omitted]
+```
+
+# DHCP Command Summary
+
+## Windows Commands
+```
+C:\Users\user> ipconfig /release
+C:\Users\user> ipconfig /renew
+```
+
+## DHCP Server Commands
+```
+R1(config)# ip dhcp excluded-address low-address high-address
+R1(config)# ip dhcp pool pool-name
+R1(dhcp-config)# network ip-address {/prefix-length | subnet-mask}
+R1(dhcp-config)# dns-server ip-address
+R1(dhcp-config)# domain-name domain-name
+R1(dhcp-config)# default-router ip-address
+R1(dhcp-config)# lease {days hours minutes | infinite}
+R1# show ip dhcp binding
+```
+
+## DHCP Relay Agent Command
+```
+R1(config-if)# ip helper-address ip-address
+```
+
+## DHCP Client Command
+```
+R1(config-if)# ip address dhcp
+```
