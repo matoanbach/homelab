@@ -3,9 +3,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "myec2" {
-    ami = "ami-08982f1c5bf93d976"
+    ami = "ami-0fd3ac4abb734302a"
     instance_type = "t2.micro"
     tags = {
-        Name = "my-first-ec2"
+      "first-ec2": "will-never-let-you-down"
     }
 }
