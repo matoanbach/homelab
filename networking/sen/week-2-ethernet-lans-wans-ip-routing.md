@@ -1,234 +1,147 @@
-# Ethernet Frame
-<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.1.png"/>
+# Fundamentals of Ethernet LANs
+## SOHO LAN
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.4.png"/>
 
-### Preamble
-- Length: 7 bits (56 bits)
-- `10101010` * 7
-- Allow devices to synchronize their receiver clocks
+- The LAN needs a device called an Ethernet LAN switch, which provides many physical ports into which cables can be connected. The LAN uses Ethernet cables to connect different Ethernet devices or nodes to one of the switch's Ethernet ports.
 
-### Start Frame Delimiter
-- Length: 1 byte (8 bits)
-- `10101011`
-- Mark the end of the preamble, and the beginning of the rest of the frame.
+- The router connects the LAN to the WAN, in this case to the Internet.
 
-### Destination and Source
-- Indicate the devices sending and receiving the frame.
-- Consist of the destination and MAC address (Media Access Control)
-- Has 6 bytes (48 bits) address of physical device
+## Small Wired and Wireless SOHO LAN
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.5.png"/>
 
-### Type and Length
-- 2 bytes (16 bits)
-- A value of 1500 or less in this field indicates the LENGTH of the encapsulated packet (in bytes)
-- A value of 1536 or greater in this field indicates the TYPE of the encapsulated packet (usually IPv4 or IPv6), and the length is determined via other methods.
-- IPv4 = 0x0800 (hexadecimal) (2048 in decimal)
+## Typical Enterprise LANs - Single-Building Enterprise Wired and Wireless LAN
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.6.png"/>
 
-### FCS (Frame Check Sequence)
-- 4 bytes
-- Detect corrupted data by running a `CRC` algorithm over the received data
-- CRC = `Cyclic Redundancy Check`
+- Figure 2-3 shows a conceptual view of a typical enterprise LAN in a three-story building. Each floor has an Ethernet LAN switch and a wireless LAN AP. To allow communication between floors, each per-floor switch connects to one centralized distribution switch. For example, PC3 can send data to PC2, but it would first flow through switch SW3 to the first floor to the distribution switch (SWD) and then back up through switch SW2 on the second floor.
+- The figure also shows the typical way to connect to LAN to a WAN using a router. LAN switches and wireless access points work to create the LAN itself. Routers connect to both the LAN and the WAN. To connect to the LAN, the router simply uses an Ethernet LAN interface and an Ethernet cable, as shown on the lower right of Figure 2-3.
 
+## Types of Ethernet
+| Speed     | Common Name      | Informal IEEE Standard Name | Formal IEEE Standard Name | Cable Type, Maximum Length |
+|-----------|------------------|-----------------------------|---------------------------|----------------------------|
+| 10 Mbps   | Ethernet         | 10BASE-T                    | 802.3                     | Copper, 100m               |
+| 100 Mbps  | Fast Ethernet    | 100BASE-T                   | 802.3u                    | Copper, 100m               |
+| 1000 Mbps | Gigabit Ethernet | 1000BASE-LX                 | 802.3z                    | Fibre, 5000m               |
+| 1000 Mbps | Gigabit Ethernet | 1000BASE-T                  | 802.ab                    | Copper, 100m               |
+| 10 Gbps   | 10 Gig Ethernet  | 10GBASE-T                   | 802.3an                   | Copper, 100m               |
 
-## Routing betwen Switches
-### MAC addresses
-- 6 bytes physical address assigned to the device when it is made
-- A.K.A `Burned-In address` (BIA)
-- Is globally unique
-- The first 3 bytes are the OUI (Organizationally Unique Identifier), which is assigned to the company making the device.
-- The last 3 bytes are unique to the device itself.
-- Written as 12 hexadecimal characters.
+## Ethernet LAN Forwards a Data Link Frame over many types of Links
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.7.png"/>
 
+## Creating One Electrical Circuit over one pair to send in one direction
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.8.png"/>
 
-## ARP (Address Resolution Protocol)
-- ARP is used to discover the Layer 2 address (MAC address) of a known Layer 3 address (IP address)
-- Consists of two messages:
-    - ARP Request
-    - ARP Reply
-- `ARP Request` is `broadcast` = Sent to all hosts on the network
-- `ARP Reply` is `unicast` = Sent only to one host (the host that sent the request)
+## Basic Components of an Ethernet Link
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.9.png"/>
 
-## ARP Table
-- Use `arp -a` to view the ARP table (Windows, MacOS, Linux)
-- `Internet address` = IP Address (Layer 3 address)
-- `Physical address` = MAC Address (Layer 2 address)
-- `Type static` = default entry
-- `Type dynamic` = learned via ARP 
-### Show the MAC address table
-```bash
-show mac address-table
+- The 10BASE-T and 100BASE-T standards require two pairs of wires, while the 1000BASE-T standard requires four pairs. Each wire has a color-coded plasting coating, with the wires in a pair having a color scheme. For example, for the blue wire pair, one wire's coating is all blue, while the other wire's coating is blue-and-white striped.
+- Many Ethernet UTP cables use an RJ-45 connector on both ends. The RJ-45 connector has eight physical locations into which the eight wires in the cable can be inserted, called pin positions, or simply pins. These pins create a place where the ends of the copper wires can touch the electronics inside the nodes at the end of the physical link so that electricity can flow.
+
+## RJ-45 Connectors and Ports
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.10.png"/>
+
+## 10-Gbps SFP+ with cable sitting just outside a catalyst 3560CX switch
+
+## Using one pair for each transmission direction with 10- and 100-Mbps ethernet
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.11.png"/>
+
+## 10Base-T and 100Base-T Straight-Through Cable Pinout
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.12.png"/>
+
+## Ethernet Straight-Through Cable concept
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.13.png"/>
+
+## Crossover Ethernet Cable
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.14.png"/>
+
+## Typical Uses for straight-through and crossover ethernet cables
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.15.png"/>
+
+## Four-Pair straight-throigh cable to 1000BASE-T
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.16.png"/>
+
+## Components of a Fiber-Optic cable
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.17.png"/>
+
+## Transmission on multimode fiber with internal reflection
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.18.png"/>
+
+## Transmission on single-mode fiber with laser transmitter
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.19.png"/>
+
+## Two fiber cables with Tx connected to Rx on each cable
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.20.png"/>
+
+## A Sampling of IEEE 802.3 10-Gbps fiber standards
+| Standard    | Cable Type | Max Distance |
+|-------------|------------|--------------|
+| 10GBASE-S   | MM         | 400m         |
+| 10GBASE-LX4 | MM         | 300m         |
+| 10GBASE-LR  | SM         | 10km         |
+| 10GBASE-E   | SM         | 30km         |
+
+## Comparisons between UTP, MM, and SM Ethernet cabling
+| Criteria                                      | UTP  | Multimode | Single-Mode |
+|-----------------------------------------------|------|-----------|-------------|
+| Relative Cost of Cabling                      | Low  | Medium    | Medium      |
+| Relativev Cost of a Switch Port               | Low  | Medium    | High        |
+| Approximate Max Distance                      | 100m | 500m      | 40km        |
+| Relative Susceptibility to Interference       | Some | None      | None        |
+| Relative Risk of Copying from Cable Emissions | Some | None      | None        |
+
+## Commonly used ethernet frame format
+
+```txt
+     Header
+Bytes|Preamble - 7|SFD - 1|Destination - 6|Source - 6|Type - 2|Data - 46 -> 1500|FCS - 4|
 ```
-### Clear the MAC address table
-```bash
-clear mac address-table dynamic
-# OR
-clear mac address-table dynamic address 0c2f.b011.9d00
-clear mac address-table dynamic interface Gi0/0
-```
+| Field       | Bytes     | Description                                                                                                                                                                    |
+|-------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|             |           |                                                                                                                                                                                |
+| Preamle     | 7         | Synchronization                                                                                                                                                                |
+| SFD         | 1         | Signifies that the next byte begins                                                                                                                                            |
+| Destination | 6         | Identifies the intended recipient of this frame.                                                                                                                               |
+| Source      | 6         | Identifies the sender of this frame.                                                                                                                                           |
+| Type        | 2         | Defines the type pf protocol listed inside the frame; today, most like identifies IP version 4 (IPv4) or IP version 6 (IPv6).                                                  |
+| Data        | 46 - 1500 | Holds data from a higher layer, typically an L3PDU (usually an IPv4 or IPv6 packet). The sender adds padding to meet the minimum length requirement for this field (46 bytes). |
+| FCS         | 4         | Provides a method for the receiving NIC to determine whether the frame experienced transmission errors.                                                                        |
 
-## Routing between Routers
-- `Routing` is the process that routers use to determine the path that IP packets should take over a network to reach their destination.
-    - Routers store routes to all of their known destinations in a `routing table`
-    - When routers receive packets, they look in the `routing table` to find the best route to forward that packet.
-- There are two main routing methods (methods that routers use to learn routers).
-    -  Dynamic routing: Routers use _dynamic_ routing protocols (i.e. OSPF) to share information with each other automatically and build their routing tables
-    - Static routing: A network engineer/admin manually configures routes on the router.
+## Structure of unicast ethernet addresses
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.21.png"/>
 
-- A route tells the router: to send a packet to destination X, you should send the packet to `next-hop` Y.
-    - Or, if the destination is directly connected to the router, send the packet directly to the destination.
-    - Or, if the destination is the router's own IP address, receive the packet for yourself (don't forward it).
+## Use of ethernet type field
+| LAN Addressing Term or Feature             | Description                                                                                                       |
+|--------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| MAC                                        | Media Access Control 802.3 (Ether) defines the MAC sublayer of IEEE ethernet.                                     |
+| Ethernet address, NIC address, LAN address | Other names often used instead of MAC address. These terms describe the 6-byte address of the LAN interface card. |
+| Burned-in address                          | The 6-byte address assigned by the vendor making the card                                                         |
+| Unicast address                            | A term for a MAC address that represents a single LAN interface.                                                  |
+| Multicast address                          | On Ethernet, a multicast address implies some subnet of all devices currently on the Ethernet LAN.                |
 
-- WAN: A Wide Area Network = a network that extends over a large geographical area.
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.22.png"/>
 
-### Pre-configurations (IP Addresses)
-```bash
-R1# conf t
-R1(config)# interface g0/0
-R1(config-if)# ip address 192.168.13.1 255.255.255.0
-R1(config-if)# no shutdown
+- A host can send one Ethernet frame with an IPv4 packet and the next Ethernet frame with an IPv6 packet. Each frame would have a different Ethernet Type field value, using the values reserved by the IEEE, as shown in Figure 2-21.
 
-R1(config-if)# interface g0/1
-R1(config-if)# ip address 192.168.12.1 255.255.255.0
-R1(config-if)# no shutdown
+## Example of sending data in a modern ethernet LAN
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.23.png"/>
 
-R1(config-if)# interface g0/2
-R1(config-if)# ip address 192.168.1.1 255.255.255.0
-R1(config-if)# no shutdown
+- Following the steps in the figure:
+1. PC1 builds and sends the original Ethernet frame, using its own MAC address as the source address and PC2's MAC address as the destination address.
+2. Switch SW1 receives and forwards the Ethernet frame out its G0/1 interface (short for Gigabit interface 0/1) to SW2.
+3. Switch SW2 receives and forwards the Ethernet frame out its F0/2 interface (short for Fast Ethernet interface 0/2) to PC2.
+4. PC2 receives the frame, recognizes the destination MAC address as its own, and processes the frame.
 
-R1# show ip int br
-Interface              IP-Address      OK? Method Status                Protocol
-GigabitEthernet0/0     192.168.13.1    YES manual up                    up
-GigabitEthernet0/1     192.168.12.1    YES manual up                    up
-GigabitEthernet0/2     192.168.1.1     YES manual up                    up
-GigabitEthernet0/3     unassigned      YES NVRAM administratively down down
-```
-## Routing Table (`show ip table`)
-```bash
-R1# show ip route
+## A collision occurring because of LAN Hub behavior
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.24.png"/>
 
-Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
-       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
-       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
-       E1 - OSPF external type 1, E2 - OSPF external type 2
-       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
-       ia - IS-IS inter area, * - candidate default, U - per-user static route
-       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
-       a - application route
-       + - replicated route, % - next hop override, p - overrides from PfR
+- The downside of using LAN hubs is that if two or more devices transmitted a signal at the same instant, the electrical signal collides and becomes garbled. The hub repeats all received electrical signals, even if it receives multiple signals at the same time. For example, Figure 2-23 shows the idea, with PCs Archie and Bob sending an electrical signal at the same instant of time (at step 1A and 1B) and the hub repeating both electrical signals out toward Larry on the left (Step 2).
 
-Gateway of last resort is not set
+## Full and Half Duplex in an ethernet LANs
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.25.png"/>
 
-     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
-C       192.168.1.0/24 is directly connected, GigabitEthernet0/2
-L       192.168.1.1/32 is directly connected, GigabitEthernet0/2
-     192.168.12.0/24 is variably subnetted, 2 subnets, 2 masks
-C       192.168.12.0/24 is directly connected, GigabitEthernet0/1
-L       192.168.12.1/32 is directly connected, GigabitEthernet0/1
-     192.168.13.0/24 is variably subnetted, 2 subnets, 2 masks
-C       192.168.13.0/24 is directly connected, GigabitEthernet0/0
-L       192.168.13.1/32 is directly connected, GigabitEthernet0/0
-```
-
--  A connected route is a route to the network that the interface is connected to.
-- R1 G0/2 IP = 192.168.1.1/24
-- Network Address = 192.168.1.0/24
-- It provides a route to all hosts in that network (ie. 192.168.1.10, 192.168.1.100, 192.168.1.232, etc.)
-- R1 knows: "If I need to send a packet to any host in the 192.168.1.10/24 network, I should send it out of G0/2"
-- A local route is a route to the exact IP address configuration on the interface.
-- A `/32` netmask is used to specify the exact IP address of the interface.
-    - `/32` means all 32 bits are _fixed_, they can't be changed
-- Even though R1's G0/2 is configured as 192.168.1.1/24, the connected route is to 192.168.1.1/32
-- R1 knows: "If I receive a packet destined for this IP address, the message is for me"
-
-### Route selection
-# Routing Table Notes
-
-- **Routers store information** about destinations they know in their **routing table**.  
-  When they receive packets, they look in the routing table to find the best route to forward the packet.  
-
-- **Each route** in the routing table is an instruction:  
-  - To reach destinations in network X, send the packet to **next-hop Y** (the next router in the path).  
-  - If the destination is directly connected (**Connected route**), send the packet directly to the destination.  
-  - If the destination is the router’s own IP (**Local route**), receive the packet for yourself.  
-
-- **Connected route (C)**: Added when an interface IP is configured and enabled.  
-  Example: if interface IP = `192.168.1.1/24`, then a route to `192.168.1.0/24` is added.  
-  Tells the router: “Packets to this network go out this interface.”  
-
-- **Local route (L)**: Added for the exact IP on the interface.  
-  Example: if interface IP = `192.168.1.1/24`, then a route to `192.168.1.1/32` is added.  
-  Tells the router: “Packets to this address are for me, not to be forwarded.”  
-
-- **Route matching**: A packet matches a route if its destination IP falls within the network specified.  
-  Example: `192.168.1.60` matches `192.168.1.0/24` but not `192.168.0.0/24`.  
-
-- **No matching route**: The router drops the packet.  
-  (Different from switches, which flood frames when there’s no MAC table entry.)  
-
-- **Multiple matching routes**: The router chooses the **most specific match**, i.e., the route with the **longest prefix length**.  
-  (Different from switches, which require an exact MAC address match.)
-
-# Static Routing
-<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.2.png"/>
-
-- R2 connected and Local Routes
-```bash
-R2# conf t
-R2(config)# interface g0/0
-R2(config-if)# ip address 192.168.12.2 255.255.255.0
-R2(config-if)# no shutdown
-R2(config-if)# interface g0/1
-R2(config-if)# ip address 192.168.24.2 255.255.255.0
-R2(config-if)# no shutdown
-
-R2# show ip route
-!codes output omitted
-
-     192.168.12.0/24 is variably subnetted, 2 subnets, 2 masks
-C       192.168.12.0/24 is directly connected, GigabitEthernet0/0
-L       192.168.12.2/32 is directly connected, GigabitEthernet0/0
-
-     192.168.24.0/24 is variably subnetted, 2 subnets, 2 masks
-C       192.168.24.0/24 is directly connected, GigabitEthernet0/1
-L       192.168.24.2/32 is directly connected, GigabitEthernet0/1
-```
-
-### Static Route Configuration (R1)
-- ip route ip-address netmask next-hop
-```bash
-R1(config)# ip route 192.168.4.0 255.255.255.0 192.168.13.3
-do show ip route
-``` 
-
-### Static Route Configuration with `exit-interface`
-- ip route _ip-address_ _netmask_ _exit-interface_
-```bash
-R2(config)# ip route 192.168.1.0 255.255.255.0 g0/0
-```
-- ip route _ip-address_ _netmask_ _exit-interface_ _next-hop_
-```bash
-R2(config)# ip route 192.168.4.0 255.255.255.0 g0/1 192.168.24.4
-```
-
-### Default Route
-<img src="https://github.com/matoanbach/networking/blob/main/pics/w2.3.png"/>
-
-```bash
-R1(config)# ip route 0.0.0.0 0.0.0.0 203.0.113.2
-R1(config)# do show ip route
-!most codes omitted
-          ia - IS-IS inter area, * - candidate default, U - per-user static route
-!most codes omitted
-Gateway of last resort is 203.0.113.2 to network 0.0.0.0
-
-S*   0.0.0.0/0 [1/0] via 203.0.113.2
-S    10.0.0.0/8 [1/0] via 192.168.12.2
-S    172.16.0.0/16 [1/0] via 192.168.13.3
-     192.168.12.0/24 is variably subnetted, 2 subnets, 2 masks
-C       192.168.12.0/24 is directly connected, GigabitEthernet0/1
-L       192.168.12.1/32 is directly connected, GigabitEthernet0/1
-     192.168.13.0/24 is variably subnetted, 2 subnets, 2 masks
-C       192.168.13.0/24 is directly connected, GigabitEthernet0/0
-L       192.168.13.1/32 is directly connected, GigabitEthernet0/0
-     203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks
-C       203.0.113.0/24 is directly connected, GigabitEthernet0/2
-L       203.0.113.1/32 is directly connected, GigabitEthernet0/2
-```
+- Algorithm to avoid collision is called `Carrier sense multiple access with collision detection` (CSMA/CD).
+1. A device with a frame to send listens until the Ethernet is not busy
+2. When the Ethernet is not busy, the sender begins the frame.
+3. The sender listens while sending to discover whether a collision occurs; collisions might be caused by many reasons, including unfornate timing. If a collision occurs, all currently sending nodes do the following:
+     - They send a jamming singal that tells all nodes that a collison happened.
+     - They independently choose a random time to wait before trying again, to avoid unfortunate timing.
+     - The next attemp starts again at Step 1.
