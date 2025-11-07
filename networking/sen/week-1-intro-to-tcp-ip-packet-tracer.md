@@ -1,72 +1,64 @@
-- Ethernet is a collection of network protocols/standards.
-- For the purpose 
+# Introduction to TCP/IP Networking
+## The Two TCP/IP Networking Models
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w3.2.png"/>
 
-## What is a networking model?
-- Networking models categorize and provide a structure for networking protocols and standards.
-- A set of rules defining how network devices and software should work.
+- The bottom layer focuses on how to transmit bits over each individual link.
+- The data-link layer focuses on sending data over one type of physical link: for instance, networks use different data-link protocols for Ethernet LANs versus wireless LANs.
+- The network layer focuses on delivering data over the entire path from the original sending computer to the final destination computer.
+- The top two layers focus more on the applications that need to send and receive data.
 
-## OSI Model
-- Open System Interconnection model
-- A conceptual model that categorizes and standardizes the different functions in a network
-- Created by the `International Organization for Standardization` (ISO).
-- Functions are divided into 7 `Layers`.
-- These layers work together to make the network work.
+## TCP/IP Architectural Model and Example Protocols
+| TCP/IP Architecture Layer | Example Protocols               |
+|---------------------------|---------------------------------|
+| Application               | HTTP, POP 3, SMTP               |
+| Transport                 | TCP, UDP                        |
+| Internet                  | IP, ICMP                        |
+| Data Link & Physical      | Ethernet, 802.11 (Wi-Fi) TCP/IP |
 
-### `Application` layer
-- This layer is the closest to the end user.
-- Interacts with software applications, for example your web browser (Brave, Firefox, Chrome, etc).
-- HTTP and HTTPS are Layer 7 protocols (`https`://www.cisco.com)
-- Functions if Layer 7 include:
-    - Identifying communication partners.
-    - Synchronizaing communication.
+## HTTP
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w3.3.png"/>
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w3.4.png"/>
 
-### `Presentation` layer
-- Data in the application layer is in `application format`.
-- It needs to be `translated` to a different format to be sent over the network.
-- The `presentation` layer is there to translate between application and network formats.
-- For example, encryption of data as it is sent, and decryptiong of data as it is received.
-- Also translates between different Application - Layer formats.
+## TCP/IP Transport Layer
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w3.5.png"/>
 
-### `Session` layer
-- Controls dialogues (sessions) between communication hosts.
-- Establishes, manages, and terminates connections between the local application (for example, your web browser) and the remote application (for example, YouTube).
+## Same-Layer and Adjacent-Layer Interaction
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w1.2.png"/>
 
-### `the first three` layers
-- Network engineers don't usually work with the top 3 layers.
-- Application developers work with the top layers of the OSI model to connect their applicaitons over networks.
+## Postal Service Forwarding (Routing)
 
-### `Transport` layer
-- Segments and reassembles data for communications between end hosts.
-- Breaks large pieces of data into smaller segments which can be more easily sent over the network and are less likely to cause transmission problems if errors occur.
-- Provide `host-to-host` communication.
+## Simple TCP/IP Network
 
-### `Network` layer
-- Provides connectivity between end hosts on different networks (ie. outside of the LAN).
-- Provides logical addressing (IP addresses).
-- Provides path selection between source and destination.
-- Routers operate at Layer 3.
+## Basic Routing Example
 
-### `Data Link` layer
-- Provides node-to-node connectivity and data transfer (for example, PC to switch, switch to router, router to router).
-- Defines how data is formatted for transmission over a physical medium (for example, copper UTP cables).
-- Detects and (possibly) corrects Physical Layer errors.
-- Uses Layer 2 addressing, seperate from Layer 3 addressing.
-- Switches operate at this layer.
+## Ethernet
 
-### `Physical` layer
-- Defines physical characteristics of the medium used to transfer data between devices.
-- For example, voltage levels, maximum transmission distances, physical connectors, cable specifications, etc.
-- Digital bits are converted into electrical (for wired connections) or radio (for wireless connections) signals.
-- Cables, layouts, and so on are related to the Physical layer.
+## Five Steps of Data encapsulation: TCP/IP
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w1.3.png"/>
 
-### `PDUs` - Protocol Data Units
-```bash
-[data]                                                  - data
-[data][L4 header]                                       - segment
-[data][L4 header][L3 header]                            - packet
-[L2 trailer][data][L4 header][L3 header][L2 header]     - Frame
-```
+## Perspective on Encapsulation and `Data`
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w1.4.png"/>
 
-## TCP/IP
-- It has 4 layers: Application, Transport, Internet and Link.
-<img src="https://github.com/matoanbach/networking/blob/main/pics/w1.1.png"/>
+## OSI Networking Model
+
+## OSI Reference Model Layer Definitions
+- Application Layer: This layer provides an interface between the communications software and any applications that need to communicate outside the computer on which the application resides. It also defines processes for user authentication.
+- Presentation Layer: This layer's main purpose is to define and negotiate data formats, such as ASCII text, EBCDIC text, binaray, BCD, and JPEG. Encryption is also defined by OSI as a presentation layer service.
+- Session Layer: This layer defines how to start, control, and end conversations (called sessions). This includes the control and management of multiple bidirectional messages so that the application can be notified if only some of a series of messages are completed. This allows the presentation layer to have a seamless view of an incoming stream of data.
+- Transport Layer: This layer's protocols provide a large number of servies. Although OSI layers 5 through 7 focus on issues related to the application, Layer 4 focuses on issues related to data delivery to another computer (for instance, error recovery and flow control.)
+- Network Layer: This layer defines three main features: logical addressing, routing (forwarding), and path determination. Routing defines how devices (typically routers) forward packets to their destination. Logical addressing defines how each device can have an address that can be used by the routing process. Path determination refers to the work done by routing protocols to learn all possible routes, and choose the best route.
+- Data Link Layer: This layer defines the rules that determine when a device can send data over a particular medium. Data link protocols also define the format of a header and trailer that allows devices attached to the medium to successfully send and receive data.
+- Physical Layer: This layer typically refers to standards from other organizations. These standards deal with the physical characteristics of the transmission medium, including connectors, pins, use of pins, electrical currents, encoding, light modulation, and the rules for how to activate and deactivate the use of the physical medium.
+
+## OSI Reference Model Example Devices and Protocols
+| Layer Name                                      | Protocols and Specifications              | Devices                                                   |
+|-------------------------------------------------|-------------------------------------------|-----------------------------------------------------------|
+| Application, Presentation, Session (Layers 5-7) | Telnet, HTTP, FTP, SMTP, POP3, VoIP, SNMP | Hosts, firewalls                                          |
+| Transport (Layer 4)                             | TCP, UDP                                  | Hosts, firewalls                                          |
+| Network (Layer 3)                               | IP                                        | Router                                                    |
+| Data Link (Layer 2)                             | Ethernet (IEEE 802.3), HDLC               | LAN switch, wireless access point, cable modem, DSL modem |
+| Physical (Layer 1)                              | RJ-45, Ethernet (IEEE 802.e)              | LAN hub, LAN repeater, cables                             |
+
+
+## OSI Encapsulation and Protocol Data Units
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w1.5.png"/>
