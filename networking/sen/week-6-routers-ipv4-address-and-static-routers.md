@@ -1,84 +1,93 @@
-## IPv4 Header
+# Operating Cisco Routers
+## Interface Status Codes
+| Name            | Location           | General Meaning                                                                                                                                                                                            |
+|-----------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Line Status     | First status code  | Refers to the Layer 1 status. (For example, is the cable installed, is it right/wrong cable, is the device on the other end powered on?)                                                                   |
+| Protocol Status | Second status code | Refers generally to the Layer 2 status. It is always down if the line status is down. If the line status is up, a protocol status of down is usually caused by a mismatched data-link layer configuration. |
+
+## Typical Combinations of Interface Status Codes
+| Line Status           | Protocol Status | Typical Reasons                                                                                                                                                                                                                                                                                                             |
+|-----------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Administratively down | Down            | The interface has a shutdown command configured on it.                                                                                                                                                                                                                                                                      |
+| Down                  | Down            | The interface is not shutdown, but the physical layer has a problem. For example, no cable has been attached to the interface, or with Ethernet, the switch interface on the other end of the cable is shut down, or the switch is powered off, or the devices on the ends of the cable use a different transmission speed. |
+| Up                    | Down            | Almost always refers to data-link layer problems, most often configuration problems. For example, serial links have this combination when one router was configured to use PPP and the other defaults to use HDLC.                                                                                                          |
+| Up                    | Up              | Layer 1 and Layer 2 of this interface are functioning.                                                                                                                                                                                                                                                                      |
+
+## Configuring IP Addresses on Cisco Routers
+
 <img src="https://github.com/matoanbach/networking/blob/main/pics/w6.1.png"/>
 
-### Version Field
-- Length: 4 bits
-- Identifies the version of IP used.
-- IPv4 = 4 (0 1 0 0)
-- IPv6 = 6 (0 1 1 0)
+```bash
+configure terminal
+interface G0/0
+ip address 172.16.1.1 255.255.255.0
+no shutdown
 
-### Internet Header Length (IHL)
-- Length: 4 bits
-- The final field of the IPv4 header (Options) is variabl in length, so this field is neccessary to indicate the total length of the header.
-- Identifies the length of the header in `in 4-byte increments`
-- Value of 5 = 5 x 4-bytes = 20 bytes
-- Maximum value is 5 (= 20 bytes)
-- Maximum value is 15 (15 x 4-bytes = 60 bytes)
-- Minimum IPv4 header length = 20 bytes
-- Maximum IPv4 header length = 60 bytes
+interface S0/0/0
+ip address 172.16.4.1 255.255.255.0
+no shutdown
 
-## Differentiated Service Code Point (DSCP field)
-- Length: 4 bits
-- Used for QoS (Quality of Service)
-- Used to prioritize delay-sensitive data (streaming voice, video, etc.)
+interface G0/1/0
+ip address 172.16.5.1 255.255.255.0
+no shutdown
+```
 
-## Explicit Congestion Notification (ECN)
-- Length: 2 bits
-- Provides end-to-end (between two endpoints) notification of network congestion `without dropping packets`
-- Optional feature that requires both endpoints, as well as the underlying network infrastructure, to support it.
+## Verify IP Addresses on Cisco Routers
+- run `show protocols`
+- This command confirms the state of each of the three R1 interfaces and the IP address and masl configured on those same interfaces.
 
-## Total Length Field
-- Length: 16 bits
-- Indicates the total length of the packet (L3 header + L4 segment)
-- Measured in bytes (not 4-byte increments like IHL)
-- Minimum value of 20 (=IPv4 header with no encapsulated data)
-- Maximum value of 65,535 (maximum 16-bit value)
+## Key commands to list router interface status
+| Command                       | Lines of Output per Interface | IP Configuration Listed | Interface Status Listed |
+|-------------------------------|-------------------------------|-------------------------|-------------------------|
+| show ip interface brief       | 1                             | Address                 | Yes                     |
+| show protocols [type nmuber]  | 1 or 2                        | Address/mask            | Yes                     |
+| show interfaces [type number] | Many                          | Address/mask            | Yes                     |
 
-## Identification field
-- Length: 16 bits
-- If a packet is fragmented due to being too large, this field is used to identify which packet the fragment belongs to.
-- All fragments of the same packet will have their own IPv4 header with the same value in this field.
-- Packets are fragmented if larger than the `MTU` (Maximum Transmission Unit)
-- The MTU is usually `1500 bytes`
-- Fragments are reassembled by the receiving host
 
-## Flags field
-- Used to control/identify fragments
-- Bit 0: Reserved, always set to 0
-- Bit 1: Don't fragment (DF bit), used to indicate a packet that should not fragmented.
-- Bit 2: More Fragments (MF bit), set to 1 if there are more fragments in the packet, set to 0 for the last fragment.
+# Configuring IPv4 Addresses and Static Routes
+## IPv4 Routing Process Reference
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w6.2.png"/>
 
-## Fragment Offset Field 
-- Length: 13 bits
-- Used to indicate the position of the fragment within the original, unfragmented IP packet.
-- Allows fragmented packets to be reassembled even if the fragments arrive out of the order.
+- Step 1: If the destination is local, send directly:
+    - Find the destination host's MAC address. Use the already-know Address Resolution Protocol (ARP) table entry, or use ARP messages to learn the information.
+    - Encapsulate the IP packet in a data-link frame, with the destination data-link address of the destination host.
+- Step 2: If the destination is not local, send to the default gateway:
+    - Find the default gateway's MAC address. Use the already-known Address Resolution Protocol (ARP) table entry, or use ARP messages to learn the information.
+    - Encapsulate the IP packet in a data-link frame, with the destination data-link address of the default gateway.
 
-## Time To Live Field
-- A router will drop a packet with a TTL of 0
-- Used to prevent infinite loops
-- Originally designed to indicate the packet's maximum lifetime in seconds
-- In practice, indicates a `hop count`: each time the packet arrives at a router, the router decreases the TTL by 1.
+## Router Routing Logic Summary
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w6.3.png"/>
 
-## Protocol Field
-- Indicates the protocol of the encapsulated L4PDU
-- Value of 6: TCP
-- Value of 17: UDP
-- Value of 1: ICMP
-- Value of 89: OSPF (dynamic routing protocol)
+1. R1 notes that the received Ethernet frame passes the FCS check and that the destination Ethernet MAC address is R1's MAC address, so R1 processes the frame.
+2. R1 de-encapsulates the IP packet from inside the Ethernet frame's header and trailer.
+3. R1 compares the IP packet's destination IP address to R1's IP routing table.
+4. R1 encapsulates the IP packet inside a new data-link frame, in this case, inside a High-Level Data Link Control (HDLC) header and trailer
+5. R1 transmits the IP packet, inside the new HDLC frame, out the serial link on the right.
 
-## Header Checksum Field
-- A calculated checksum used to check for errors in the IPv4 header.
-- When a router receives a packet, it calculates the checksum of the header and compares it to the one in this field of the header.
-- If they do not match, the router drops the packet.
-- Used to check for errors only in the IPv4 header.
-- IP relies on the encapsulated protocol to detect errors in the encapsulated data.
-- Both TCP and UDP have their own checksum fields to detect errors in the encapsulated data.
+## Routing
+### Step 1: Decide whether to process the incoming frame
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w6.4.png"/>
 
-## Source/Destination IP Address Fields
-- Length: 32 bits (each)
-- Source IP address = IPv4 address of the sender of the packet.
-- Destination IP address = IPv4 address of the intended receiver of the packet.
+- Host A sends a frame destined for R1's MAC address. So, after the frame is received, and after R1 confirms with the FCS that no error occurred, R1 confirms that the frame is destined for R1's MAC address (0200.0101.0101 in this case). All checks have been passed, so R1 will process the frame. 
 
-## Options Field
-- Length: 0 - 320 bits
-- If the IHL field is greater than 5, it means that options are present.
+### Step 2: De-encapsulation of the IP Packet
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w6.5.png"/>
+
+- After the router know that it has to process the received frame, the next step is relatively simple: de-encapsulating the packet. In router memory, the router no longer needs the original frame's data-link header and trailer, so the router removes and discards them, leaving the IP packet. Note that the IP address remains unchanged (172.16.2.9).
+
+### Step 3: Choosing where to forward the packet
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w6.6.png"/>
+
+
+### Step 4: Encapsulating the packet in a new frame
+<img src="https://github.com/matoanbach/networking/blob/main/pics/w6.7.png"/>
+
+### Step 5: Transmitting the Frame
+
+- After the frame has been prepared, the router simply needs to transmit the frame. The router might have to wait, particularly if other frames are already waiting their turn to exit the interface.
+
+
+## Connected and Local Routes on a Router
+- Connected routes: Added because of the configuration of the `ip address` interfcace subcommand on the local router
+
+- Local routes: defined as a route for one specific IP address configured on the router interface.
