@@ -219,6 +219,7 @@
 <img src="https://github.com/matoanbach/networking/blob/main/pics/w8.5.png"/>
 
 ## OSPF Single-Area Configuration
+
 ### Example 20-2 - OSPF Single-Area Configuration on R2 Using one network command
 ```bash
 router ospf 1
