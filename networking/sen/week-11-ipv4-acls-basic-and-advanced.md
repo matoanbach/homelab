@@ -112,6 +112,19 @@ access-list 2 permit 10.2.2.1 log
 
 ## Building One-Line Standard ACLs: Practice
 
+| Problem | Criteria                                                    |
+| ------- | ----------------------------------------------------------- |
+| 1       | Packets from 172.16.5.4                                     |
+| 2       | Packets from hosts with 192.168.6 as the first three octets |
+| 3       | Packets from hosts with 192.168 as the first two octets     |
+| 4       | Packets from any host                                       |
+| 5       | Packets from subnet 10.1.200.0/21                           |
+| 6       | Packets from subnet 10.1.200.0/27                           |
+| 7       | Packets from subnet 172.20.112.0/23                         |
+| 8       | Packets from subnet 172.20.112.0/26                         |
+| 9       | Packets from subnet 192.168.9.64/28                         |
+| 10      | Packets from subnet 192.168.9.64/30                         |
+
 ## Reverse Engineering from ACl to Address Range
 
 ## Finding IP Addresses/Ranges Matching by Existing ACLs
@@ -197,6 +210,7 @@ access-list 2 permit 10.2.2.1 log
 | `access-list <access-list-number> {deny | permit} {tcp                                                                      | udp} source <source-wildcard> [operator [port]] destination destination-wildcard [operator [port]] [established] [log]` | A version of the `access-list` command with paramters specific to TCP and/or UDP                                   |
 
 ## Network Diagram for Extended Access List Example 1
+
 <img src="https://github.com/matoanbach/networking/blob/main/pics/w11.17.png"/>
 
 ## R1's Extended Access List: Example 1
@@ -217,6 +231,7 @@ access-list 101 permit ip any any
 ```
 
 ## R3's Extended Access List Stopping Bob from Reachng FTP Servers Near R1
+
 ```bash
 interface Ethernet0
 ip address 172.16.3.1 255.255.255.0
@@ -227,9 +242,11 @@ access-list 103 permit ip any any
 ```
 
 ## Network Diagram for Extended Access List Example 2
+
 <img src="https://github.com/matoanbach/networking/blob/main/pics/w11.18.png"/>
 
 ## Yosemite Configuration for Extended Access List Example 2
+
 ```bash
 interface ethernet 0
 ip access-group 110 in
@@ -242,6 +259,7 @@ access-list 110 permit ip any any
 ## Building One-Line Extended ACLs: Practice
 
 ## Named ACL vs. Numbered ACL Configuration
+
 <img src="https://github.com/matoanbach/networking/blob/main/pics/w11.19.png"/>
 
 ## Name Access List Configuration
@@ -253,6 +271,7 @@ access-list 110 permit ip any any
 ## Adding to and displaying numbered ACL Configuration
 
 ## General Recommendation for ACL Implementation
+
 - Place extended ACLs as close as possible to the source of the packet
 - Place standard ACLs as close as possible to the destination of the packet
 - Place more specific statements early in the ACL.
