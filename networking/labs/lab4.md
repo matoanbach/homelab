@@ -1,5 +1,5 @@
 # Lab 4
-<img src="https://github.com/matoanbach/networking/blob/main/pics/lab4.1.png"/>
+<img src="https://github.com/matoanbach/homelab/blob/main/networking/pics/lab4.1.png"/>
 
 ## Addressing recap (for reference)
 - Subnet A (VLAN 100 clients at R1)
