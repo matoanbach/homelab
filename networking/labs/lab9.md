@@ -1,5 +1,5 @@
 # LAB 9
-<img src="https://github.com/matoanbach/networking/blob/main/pics/lab9.1.png"/>
+<img src="https://github.com/matoanbach/homelab/blob/main/networking/pics/lab9.1.png"/>
 ## Part 1 – Build the Network and Configure Basic Device Settings
 
 ### 1.1 Basic settings – R1
