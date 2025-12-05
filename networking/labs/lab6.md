@@ -1,5 +1,4 @@
 # Lab 6
-
 <img src="https://github.com/matoanbach/homelab/blob/main/networking/pics/lab6.1.png"/>
 
 ## Part 1 – Build the Network & Basic Device Settings
