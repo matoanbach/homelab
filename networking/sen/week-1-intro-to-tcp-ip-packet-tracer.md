@@ -42,13 +42,15 @@
 ## OSI Networking Model
 
 ## OSI Reference Model Layer Definitions
-- Application Layer: This layer provides an interface between the communications software and any applications that need to communicate outside the computer on which the application resides. It also defines processes for user authentication.
+<!-- - Application Layer: This layer provides an interface between the communications software and any applications that need to communicate outside the computer on which the application resides. It also defines processes for user authentication.
 - Presentation Layer: This layer's main purpose is to define and negotiate data formats, such as ASCII text, EBCDIC text, binaray, BCD, and JPEG. Encryption is also defined by OSI as a presentation layer service.
 - Session Layer: This layer defines how to start, control, and end conversations (called sessions). This includes the control and management of multiple bidirectional messages so that the application can be notified if only some of a series of messages are completed. This allows the presentation layer to have a seamless view of an incoming stream of data.
 - Transport Layer: This layer's protocols provide a large number of servies. Although OSI layers 5 through 7 focus on issues related to the application, Layer 4 focuses on issues related to data delivery to another computer (for instance, error recovery and flow control.)
 - Network Layer: This layer defines three main features: logical addressing, routing (forwarding), and path determination. Routing defines how devices (typically routers) forward packets to their destination. Logical addressing defines how each device can have an address that can be used by the routing process. Path determination refers to the work done by routing protocols to learn all possible routes, and choose the best route.
 - Data Link Layer: This layer defines the rules that determine when a device can send data over a particular medium. Data link protocols also define the format of a header and trailer that allows devices attached to the medium to successfully send and receive data.
-- Physical Layer: This layer typically refers to standards from other organizations. These standards deal with the physical characteristics of the transmission medium, including connectors, pins, use of pins, electrical currents, encoding, light modulation, and the rules for how to activate and deactivate the use of the physical medium.
+- Physical Layer: This layer typically refers to standards from other organizations. These standards deal with the physical characteristics of the transmission medium, including connectors, pins, use of pins, electrical currents, encoding, light modulation, and the rules for how to activate and deactivate the use of the physical medium. -->
+
+
 
 ## OSI Reference Model Example Devices and Protocols
 | Layer Name                                      | Protocols and Specifications              | Devices                                                   |
@@ -62,3 +64,12 @@
 
 ## OSI Encapsulation and Protocol Data Units
 <img src="https://github.com/matoanbach/networking/blob/main/pics/w1.5.png"/>
+
+
+- Application Layer: provides an interface between communication software and any applicatiosn that need to talk outside the computer on which the application resides. It also defines authentication processes.
+- Presentation Layer: This layer's main purpose is to define and negotiate data format.
+- Session Layer: This layer defines how to start, control and end conversations.
+- Transport Layer: It provides a number of services like error recovery, and control follow.
+- Network Layer: It defines logical addressing, routing (forwarding), and path determination. Local addressing defines how to assign IP addresses to devices so that the process of routing can be done. Path determination refers to the process of learning all possible routes, and choose the best route.
+- Data Link: It defines the rules that determine when a device can send data over a particular medium. It also defines the header and trailer that allows devices to attach to the medium to successfully send and receive data.
+- Physical Layer: It refers to the stands from other organizations.
