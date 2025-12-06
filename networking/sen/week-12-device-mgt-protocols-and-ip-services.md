@@ -29,14 +29,14 @@ service sequence-numbers
 
 ## Syslog Message Severity Levels by Keyword and Numeral
 
-- 0 Emergency | Severe
-- 1 Alert | Severe
-- 2 Critical | Impactful
-- 3 Error | Impactful
-- 4 Warning | Impactful
-- 5 Notification | Normal
-- 6 Informational | Normal
-- 7 Debug | Debug
+- E: Emergency  : Severe
+- A: Alert      : Severe
+- C: Critical   : Impactful
+- E: Error      : Impactful
+- W: Warning    : Impactful
+- N: Notififcation  : Normal
+- I: Information    : Normal
+- D: Debug          : Debug
 
 ## How to Configure Logging Message Levels for Each Log Service
 
