@@ -96,7 +96,7 @@
 - The OSPF neighbor relationship lets OSPF know when a neighbor might not be a good option for routing packets.
 - The OSPF neighbor model allows new routers to by dynamically discovered.
 
-<img src="https://github.com/matoanbach/homelab/blob/main/networking/pics/lab8.8.png"/>
+<img src="https://github.com/matoanbach/homelab/blob/main/networking/pics/w8.8.png"/>
 
 ### Meeting Neighbors and Learning Their Router-ID
 - When OSPF exchanges `Hello` messsage they lust each router's `router-id` (RID).
