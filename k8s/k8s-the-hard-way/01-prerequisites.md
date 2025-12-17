@@ -1,3 +1,6 @@
+# overview of the cluster
+![K8s digram](https://github.com/matoanbach/homelab/blob/main/k8s/assets/k8s-the-hard-way/k8s-cluster.svg)
+
 # Prerequisites (Proxmox + RHEL 10)
 
 In this lab you will review the machine requirements necessary to follow this tutorial **on a single Proxmox host** using **RHEL 10** guest VMs.
