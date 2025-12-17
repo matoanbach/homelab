@@ -138,3 +138,4 @@ Kustomize Version: v5.5.0
 At this point the `jumpbox` has been set up with all the command line tools and utilities necessary to complete the labs in this tutorial.
 
 Next: [Provisioning Compute Resources](03-compute-resources.md)
+
