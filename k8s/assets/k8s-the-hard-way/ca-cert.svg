@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1321pt" height="535pt" viewBox="0.00 0.00 1321.00 535.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(25.2 509.78)">
+<title>KTHW_Certs_Distribution</title>
+<polygon fill="white" stroke="none" points="-25.2,25.2 -25.2,-509.78 1295.84,-509.78 1295.84,25.2 -25.2,25.2"/>
+<text xml:space="preserve" text-anchor="middle" x="635.32" y="-467.98" font-family="Inter" font-size="14.00">KTHW — Certificate Generation &amp; Distribution (Lab 04)</text>
+<!-- jumpbox -->
+<g id="node1" class="node">
+<title>jumpbox</title>
+<path fill="#e0f2fe" stroke="#2f3b5c" d="M510.69,-301.78C510.69,-301.78 327.01,-301.78 327.01,-301.78 321.01,-301.78 315.01,-295.78 315.01,-289.78 315.01,-289.78 315.01,-219.5 315.01,-219.5 315.01,-213.5 321.01,-207.5 327.01,-207.5 327.01,-207.5 510.69,-207.5 510.69,-207.5 516.69,-207.5 522.69,-213.5 522.69,-219.5 522.69,-219.5 522.69,-289.78 522.69,-289.78 522.69,-295.78 516.69,-301.78 510.69,-301.78"/>
+<text xml:space="preserve" text-anchor="start" x="389.51" y="-284.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="406.01" y="-284.24" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">jumpbox</text>
+<text xml:space="preserve" text-anchor="start" x="349.88" y="-273.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="366.38" y="-273.24" font-family="Inter" font-size="10.00" fill="#111827">Generates CA + signs all certs</text>
+<text xml:space="preserve" text-anchor="start" x="327.97" y="-251.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="344.47" y="-251.24" font-family="Inter" text-decoration="underline" font-size="11.00" fill="#111827">Holds</text>
+<text xml:space="preserve" text-anchor="start" x="327.97" y="-240.24" font-family="Inter" font-size="11.00" fill="#111827">      • ca.key (CA private key)</text>
+<text xml:space="preserve" text-anchor="start" x="327.97" y="-229.24" font-family="Inter" font-size="11.00" fill="#111827">      • ca.crt (CA public cert)</text>
+<text xml:space="preserve" text-anchor="start" x="327.97" y="-218.24" font-family="Inter" font-size="11.00" fill="#111827">      • admin.* and all component certs    </text>
+</g>
+<!-- ca_bundle -->
+<g id="node5" class="node">
+<title>ca_bundle</title>
+<path fill="#f1f5f9" stroke="#cbd5e1" d="M810.13,-459.78C810.13,-459.78 657.92,-459.78 657.92,-459.78 651.92,-459.78 645.92,-453.78 645.92,-447.78 645.92,-447.78 645.92,-421.5 645.92,-421.5 645.92,-415.5 651.92,-409.5 657.92,-409.5 657.92,-409.5 810.13,-409.5 810.13,-409.5 816.13,-409.5 822.13,-415.5 822.13,-421.5 822.13,-421.5 822.13,-447.78 822.13,-447.78 822.13,-453.78 816.13,-459.78 810.13,-459.78"/>
+<text xml:space="preserve" text-anchor="start" x="700.25" y="-442.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="716.75" y="-442.24" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">CA bundle</text>
+<text xml:space="preserve" text-anchor="start" x="673.55" y="-431.24" font-family="Inter" font-size="11.00" fill="#111827">      ca.crt (public trust root)</text>
+<text xml:space="preserve" text-anchor="start" x="658.88" y="-420.24" font-family="Inter" font-size="11.00" fill="#111827">      ca.key (private signing key)    </text>
+</g>
+<!-- jumpbox&#45;&gt;ca_bundle -->
+<g id="edge1" class="edge">
+<title>jumpbox-&gt;ca_bundle</title>
+<path fill="none" stroke="#475569" d="M496.85,-302.22C540.25,-328.63 595.69,-361.7 645.92,-389.64 655.01,-394.7 664.73,-399.9 674.25,-404.9"/>
+<polygon fill="#475569" stroke="#475569" points="672.81,-407.31 681.2,-408.52 675.4,-402.34 672.81,-407.31"/>
+<text xml:space="preserve" text-anchor="middle" x="584.31" y="-371.42" font-family="Inter" font-size="10.00" fill="#334155">generates</text>
+</g>
+<!-- api_bundle -->
+<g id="node6" class="node">
+<title>api_bundle</title>
+<path fill="#f1f5f9" stroke="#cbd5e1" d="M792.56,-369.78C792.56,-369.78 675.49,-369.78 675.49,-369.78 669.49,-369.78 663.49,-363.78 663.49,-357.78 663.49,-357.78 663.49,-331.5 663.49,-331.5 663.49,-325.5 669.49,-319.5 675.49,-319.5 675.49,-319.5 792.56,-319.5 792.56,-319.5 798.56,-319.5 804.56,-325.5 804.56,-331.5 804.56,-331.5 804.56,-357.78 804.56,-357.78 804.56,-363.78 798.56,-369.78 792.56,-369.78"/>
+<text xml:space="preserve" text-anchor="start" x="687.59" y="-352.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="704.09" y="-352.24" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">API Server TLS</text>
+<text xml:space="preserve" text-anchor="start" x="684.09" y="-341.24" font-family="Inter" font-size="11.00" fill="#111827">      kube-api-server.crt</text>
+<text xml:space="preserve" text-anchor="start" x="676.45" y="-330.24" font-family="Inter" font-size="11.00" fill="#111827">      kube-api-server.key    </text>
+</g>
+<!-- jumpbox&#45;&gt;api_bundle -->
+<g id="edge2" class="edge">
+<title>jumpbox-&gt;api_bundle</title>
+<path fill="none" stroke="#475569" d="M522.83,-284.23C565.5,-296.5 614.22,-310.5 654,-321.93"/>
+<polygon fill="#475569" stroke="#475569" points="653.2,-324.61 661.67,-324.13 654.75,-319.23 653.2,-324.61"/>
+<text xml:space="preserve" text-anchor="middle" x="584.31" y="-310.7" font-family="Inter" font-size="10.00" fill="#334155">signs with CA</text>
+</g>
+<!-- sa_bundle -->
+<g id="node7" class="node">
+<title>sa_bundle</title>
+<path fill="#f1f5f9" stroke="#cbd5e1" d="M801.6,-279.78C801.6,-279.78 666.46,-279.78 666.46,-279.78 660.46,-279.78 654.46,-273.78 654.46,-267.78 654.46,-267.78 654.46,-241.5 654.46,-241.5 654.46,-235.5 660.46,-229.5 666.46,-229.5 666.46,-229.5 801.6,-229.5 801.6,-229.5 807.6,-229.5 813.6,-235.5 813.6,-241.5 813.6,-241.5 813.6,-267.78 813.6,-267.78 813.6,-273.78 807.6,-279.78 801.6,-279.78"/>
+<text xml:space="preserve" text-anchor="start" x="667.42" y="-262.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="683.92" y="-262.24" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">Service Accounts signing</text>
+<text xml:space="preserve" text-anchor="start" x="681.96" y="-251.24" font-family="Inter" font-size="11.00" fill="#111827">      service-accounts.crt</text>
+<text xml:space="preserve" text-anchor="start" x="674.32" y="-240.24" font-family="Inter" font-size="11.00" fill="#111827">      service-accounts.key    </text>
+</g>
+<!-- jumpbox&#45;&gt;sa_bundle -->
+<g id="edge3" class="edge">
+<title>jumpbox-&gt;sa_bundle</title>
+<path fill="none" stroke="#475569" d="M522.83,-254.64C562.28,-254.64 606.88,-254.64 644.82,-254.64"/>
+<polygon fill="#475569" stroke="#475569" points="644.8,-257.44 652.8,-254.64 644.8,-251.84 644.8,-257.44"/>
+<text xml:space="preserve" text-anchor="middle" x="584.31" y="-257.64" font-family="Inter" font-size="10.00" fill="#334155">signs with CA</text>
+</g>
+<!-- kubelet0_bundle -->
+<g id="node8" class="node">
+<title>kubelet0_bundle</title>
+<path fill="#f1f5f9" stroke="#cbd5e1" d="M802.21,-189.28C802.21,-189.28 665.85,-189.28 665.85,-189.28 659.85,-189.28 653.85,-183.28 653.85,-177.28 653.85,-177.28 653.85,-140 653.85,-140 653.85,-134 659.85,-128 665.85,-128 665.85,-128 802.21,-128 802.21,-128 808.21,-128 814.21,-134 814.21,-140 814.21,-140 814.21,-177.28 814.21,-177.28 814.21,-183.28 808.21,-189.28 802.21,-189.28"/>
+<text xml:space="preserve" text-anchor="start" x="666.81" y="-171.74" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="683.31" y="-171.74" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">Kubelet identity (node-0)</text>
+<text xml:space="preserve" text-anchor="start" x="673.09" y="-160.74" font-family="Inter" font-size="11.00" fill="#111827">      node-0.crt → kubelet.crt</text>
+<text xml:space="preserve" text-anchor="start" x="668.81" y="-149.74" font-family="Inter" font-size="11.00" fill="#111827">      node-0.key → kubelet.key</text>
+<text xml:space="preserve" text-anchor="start" x="703.74" y="-138.74" font-family="Inter" font-size="11.00" fill="#111827">      + ca.crt    </text>
+</g>
+<!-- jumpbox&#45;&gt;kubelet0_bundle -->
+<g id="edge4" class="edge">
+<title>jumpbox-&gt;kubelet0_bundle</title>
+<path fill="none" stroke="#475569" d="M522.83,-223.07C562.28,-210.98 606.89,-197.31 644.83,-185.68"/>
+<polygon fill="#475569" stroke="#475569" points="645.54,-188.39 652.37,-183.36 643.9,-183.03 645.54,-188.39"/>
+<text xml:space="preserve" text-anchor="middle" x="584.31" y="-215.39" font-family="Inter" font-size="10.00" fill="#334155">signs with CA</text>
+</g>
+<!-- kubelet1_bundle -->
+<g id="node9" class="node">
+<title>kubelet1_bundle</title>
+<path fill="#f1f5f9" stroke="#cbd5e1" d="M802.21,-83.28C802.21,-83.28 665.85,-83.28 665.85,-83.28 659.85,-83.28 653.85,-77.28 653.85,-71.28 653.85,-71.28 653.85,-34 653.85,-34 653.85,-28 659.85,-22 665.85,-22 665.85,-22 802.21,-22 802.21,-22 808.21,-22 814.21,-28 814.21,-34 814.21,-34 814.21,-71.28 814.21,-71.28 814.21,-77.28 808.21,-83.28 802.21,-83.28"/>
+<text xml:space="preserve" text-anchor="start" x="666.81" y="-65.74" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="683.31" y="-65.74" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">Kubelet identity (node-1)</text>
+<text xml:space="preserve" text-anchor="start" x="673.09" y="-54.74" font-family="Inter" font-size="11.00" fill="#111827">      node-1.crt → kubelet.crt</text>
+<text xml:space="preserve" text-anchor="start" x="668.81" y="-43.74" font-family="Inter" font-size="11.00" fill="#111827">      node-1.key → kubelet.key</text>
+<text xml:space="preserve" text-anchor="start" x="703.74" y="-32.74" font-family="Inter" font-size="11.00" fill="#111827">      + ca.crt    </text>
+</g>
+<!-- jumpbox&#45;&gt;kubelet1_bundle -->
+<g id="edge5" class="edge">
+<title>jumpbox-&gt;kubelet1_bundle</title>
+<path fill="none" stroke="#475569" d="M492.49,-207.06C536.74,-178.16 594.48,-140.6 645.92,-107.64 655.55,-101.47 665.8,-94.96 675.76,-88.65"/>
+<polygon fill="#475569" stroke="#475569" points="677.12,-91.1 682.39,-84.46 674.13,-86.37 677.12,-91.1"/>
+<text xml:space="preserve" text-anchor="middle" x="584.31" y="-166.92" font-family="Inter" font-size="10.00" fill="#334155">signs with CA</text>
+</g>
+<!-- server -->
+<g id="node2" class="node">
+<title>server</title>
+<path fill="#dbeafe" stroke="#2f3b5c" d="M1210.97,-391.78C1210.97,-391.78 1061.22,-391.78 1061.22,-391.78 1055.22,-391.78 1049.22,-385.78 1049.22,-379.78 1049.22,-379.78 1049.22,-309.5 1049.22,-309.5 1049.22,-303.5 1055.22,-297.5 1061.22,-297.5 1061.22,-297.5 1210.97,-297.5 1210.97,-297.5 1216.97,-297.5 1222.97,-303.5 1222.97,-309.5 1222.97,-309.5 1222.97,-379.78 1222.97,-379.78 1222.97,-385.78 1216.97,-391.78 1210.97,-391.78"/>
+<text xml:space="preserve" text-anchor="start" x="1082.25" y="-374.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="1098.75" y="-374.24" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">server</text>
+<text xml:space="preserve" text-anchor="start" x="1128.06" y="-374.24" font-family="Inter" font-size="11.00" fill="#111827"> </text>
+<text xml:space="preserve" text-anchor="start" x="1130.81" y="-374.24" font-family="Inter" font-size="10.00" fill="#111827">(control plane)</text>
+<text xml:space="preserve" text-anchor="start" x="1062.18" y="-352.24" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="1078.68" y="-352.24" font-family="Inter" text-decoration="underline" font-size="11.00" fill="#111827">Receives</text>
+<text xml:space="preserve" text-anchor="start" x="1062.18" y="-341.24" font-family="Inter" font-size="11.00" fill="#111827">      • ca.crt</text>
+<text xml:space="preserve" text-anchor="start" x="1062.18" y="-330.24" font-family="Inter" font-size="11.00" fill="#111827">      • ca.key </text>
+<text xml:space="preserve" text-anchor="start" x="1120.83" y="-330.24" font-family="Inter" font-size="10.00" fill="#111827">(per README)</text>
+<text xml:space="preserve" text-anchor="start" x="1062.18" y="-319.24" font-family="Inter" font-size="11.00" fill="#111827">      • kube-api-server.crt/.key</text>
+<text xml:space="preserve" text-anchor="start" x="1062.18" y="-308.24" font-family="Inter" font-size="11.00" fill="#111827">      • service-accounts.crt/.key    </text>
+</g>
+<!-- node0 -->
+<g id="node3" class="node">
+<title>node0</title>
+<path fill="#dcfce7" stroke="#2f3b5c" d="M1258.64,-206.28C1258.64,-206.28 1013.56,-206.28 1013.56,-206.28 1007.56,-206.28 1001.56,-200.28 1001.56,-194.28 1001.56,-194.28 1001.56,-135 1001.56,-135 1001.56,-129 1007.56,-123 1013.56,-123 1013.56,-123 1258.64,-123 1258.64,-123 1264.64,-123 1270.64,-129 1270.64,-135 1270.64,-135 1270.64,-194.28 1270.64,-194.28 1270.64,-200.28 1264.64,-206.28 1258.64,-206.28"/>
+<text xml:space="preserve" text-anchor="start" x="1093.09" y="-188.74" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="1109.59" y="-188.74" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">node-0</text>
+<text xml:space="preserve" text-anchor="start" x="1141.37" y="-188.74" font-family="Inter" font-size="11.00" fill="#111827"> </text>
+<text xml:space="preserve" text-anchor="start" x="1144.12" y="-188.74" font-family="Inter" font-size="10.00" fill="#111827">(worker)</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-166.74" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="1031.02" y="-166.74" font-family="Inter" text-decoration="underline" font-size="11.00" fill="#111827">Receives</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-155.74" font-family="Inter" font-size="11.00" fill="#111827">      • /var/lib/kubelet/ca.crt</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-144.74" font-family="Inter" font-size="11.00" fill="#111827">      • /var/lib/kubelet/kubelet.crt (from node-0.crt)</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-133.74" font-family="Inter" font-size="11.00" fill="#111827">      • /var/lib/kubelet/kubelet.key (from node-0.key)    </text>
+</g>
+<!-- node1 -->
+<g id="node4" class="node">
+<title>node1</title>
+<path fill="#dcfce7" stroke="#2f3b5c" d="M1258.64,-83.28C1258.64,-83.28 1013.56,-83.28 1013.56,-83.28 1007.56,-83.28 1001.56,-77.28 1001.56,-71.28 1001.56,-71.28 1001.56,-12 1001.56,-12 1001.56,-6 1007.56,0 1013.56,0 1013.56,0 1258.64,0 1258.64,0 1264.64,0 1270.64,-6 1270.64,-12 1270.64,-12 1270.64,-71.28 1270.64,-71.28 1270.64,-77.28 1264.64,-83.28 1258.64,-83.28"/>
+<text xml:space="preserve" text-anchor="start" x="1093.09" y="-65.74" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="1109.59" y="-65.74" font-family="Inter" font-weight="bold" font-size="11.00" fill="#111827">node-1</text>
+<text xml:space="preserve" text-anchor="start" x="1141.37" y="-65.74" font-family="Inter" font-size="11.00" fill="#111827"> </text>
+<text xml:space="preserve" text-anchor="start" x="1144.12" y="-65.74" font-family="Inter" font-size="10.00" fill="#111827">(worker)</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-43.74" font-family="Inter" font-size="11.00" fill="#111827">      </text>
+<text xml:space="preserve" text-anchor="start" x="1031.02" y="-43.74" font-family="Inter" text-decoration="underline" font-size="11.00" fill="#111827">Receives</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-32.74" font-family="Inter" font-size="11.00" fill="#111827">      • /var/lib/kubelet/ca.crt</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-21.74" font-family="Inter" font-size="11.00" fill="#111827">      • /var/lib/kubelet/kubelet.crt (from node-1.crt)</text>
+<text xml:space="preserve" text-anchor="start" x="1014.52" y="-10.74" font-family="Inter" font-size="11.00" fill="#111827">      • /var/lib/kubelet/kubelet.key (from node-1.key)    </text>
+</g>
+<!-- ca_bundle&#45;&gt;server -->
+<g id="edge6" class="edge">
+<title>ca_bundle-&gt;server</title>
+<path fill="none" stroke="#475569" d="M822.33,-415C886.56,-400.55 973.81,-380.92 1039.84,-366.07"/>
+<polygon fill="#475569" stroke="#475569" points="1040.35,-368.83 1047.54,-364.34 1039.12,-363.36 1040.35,-368.83"/>
+<text xml:space="preserve" text-anchor="middle" x="911.85" y="-408.53" font-family="Inter" font-size="10.00" fill="#334155">scp: ca.key ca.crt → ~/</text>
+</g>
+<!-- api_bundle&#45;&gt;server -->
+<g id="edge7" class="edge">
+<title>api_bundle-&gt;server</title>
+<path fill="none" stroke="#475569" d="M804.72,-344.64C869.77,-344.64 967.39,-344.64 1039.67,-344.64"/>
+<polygon fill="#475569" stroke="#475569" points="1039.28,-347.44 1047.28,-344.64 1039.28,-341.84 1039.28,-347.44"/>
+<text xml:space="preserve" text-anchor="middle" x="911.85" y="-347.64" font-family="Inter" font-size="10.00" fill="#334155">scp: kube-api-server.* → ~/</text>
+</g>
+<!-- sa_bundle&#45;&gt;server -->
+<g id="edge8" class="edge">
+<title>sa_bundle-&gt;server</title>
+<path fill="none" stroke="#475569" d="M814.07,-272.42C878.9,-287.01 970.9,-307.7 1039.81,-323.2"/>
+<polygon fill="#475569" stroke="#475569" points="1039.05,-325.9 1047.47,-324.93 1040.28,-320.44 1039.05,-325.9"/>
+<text xml:space="preserve" text-anchor="middle" x="911.85" y="-308.03" font-family="Inter" font-size="10.00" fill="#334155">scp: service-accounts.* → ~/</text>
+</g>
+<!-- kubelet0_bundle&#45;&gt;node0 -->
+<g id="edge9" class="edge">
+<title>kubelet0_bundle-&gt;node0</title>
+<path fill="none" stroke="#475569" d="M814.55,-159.83C865.16,-160.59 932.19,-161.6 991.86,-162.49"/>
+<polygon fill="#475569" stroke="#475569" points="991.82,-165.29 999.86,-162.61 991.9,-159.69 991.82,-165.29"/>
+<text xml:space="preserve" text-anchor="middle" x="911.85" y="-177" font-family="Inter" font-size="10.00" fill="#334155">scp → /var/lib/kubelet/</text>
+<text xml:space="preserve" text-anchor="middle" x="911.85" y="-165" font-family="Inter" font-size="10.00" fill="#334155">ca.crt + kubelet.crt/key</text>
+</g>
+<!-- kubelet1_bundle&#45;&gt;node1 -->
+<g id="edge10" class="edge">
+<title>kubelet1_bundle-&gt;node1</title>
+<path fill="none" stroke="#475569" d="M814.55,-50.45C865.27,-49.06 932.47,-47.21 992.23,-45.57"/>
+<polygon fill="#475569" stroke="#475569" points="991.94,-48.38 999.86,-45.36 991.79,-42.78 991.94,-48.38"/>
+<text xml:space="preserve" text-anchor="middle" x="911.85" y="-64.08" font-family="Inter" font-size="10.00" fill="#334155">scp → /var/lib/kubelet/</text>
+<text xml:space="preserve" text-anchor="middle" x="911.85" y="-52.08" font-family="Inter" font-size="10.00" fill="#334155">ca.crt + kubelet.crt/key</text>
+</g>
+<!-- note_clients -->
+<g id="node10" class="node">
+<title>note_clients</title>
+<polygon fill="#fff7ed" stroke="#fdba74" points="242.01,-285.28 0,-285.28 0,-224 248.01,-224 248.01,-279.28 242.01,-285.28"/>
+<polyline fill="none" stroke="#fdba74" points="242.01,-285.28 242.01,-279.28"/>
+<polyline fill="none" stroke="#fdba74" points="248.01,-279.28 242.01,-279.28"/>
+<text xml:space="preserve" text-anchor="start" x="12.96" y="-267.74" font-family="Inter" font-size="11.00" fill="#7c2d12">      </text>
+<text xml:space="preserve" text-anchor="start" x="29.46" y="-267.74" font-family="Inter" font-weight="bold" font-size="11.00" fill="#7c2d12">Note (next lab)</text>
+<text xml:space="preserve" text-anchor="start" x="12.96" y="-256.74" font-family="Inter" font-size="11.00" fill="#7c2d12">      admin, kube-proxy, kube-scheduler,</text>
+<text xml:space="preserve" text-anchor="start" x="12.96" y="-245.74" font-family="Inter" font-size="11.00" fill="#7c2d12">      kube-controller-manager, kubelet client certs</text>
+<text xml:space="preserve" text-anchor="start" x="12.96" y="-234.74" font-family="Inter" font-size="11.00" fill="#7c2d12">      are used to build kubeconfig files in Lab 05.    </text>
+</g>
+<!-- note_clients&#45;&gt;jumpbox -->
+<g id="edge11" class="edge">
+<title>note_clients-&gt;jumpbox</title>
+<path fill="none" stroke="#475569" stroke-dasharray="1,5" d="M248.35,-254.64C270.39,-254.64 293.15,-254.64 314.55,-254.64"/>
+</g>
+</g>
+</svg>
