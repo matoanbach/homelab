@@ -1,6 +1,5 @@
 # overview of the cluster
 ![K8s diagram](https://github.com/matoanbach/homelab/blob/main/k8s/assets/k8s-the-hard-way/k8s-cluster.svg)
-
 # Prerequisites (Proxmox + Ubuntu 24.04)
 
 In this lab you will review the machine requirements necessary to follow this tutorial **on a single Proxmox host** using **Ubuntu 24.04 LTS** guest VMs.
