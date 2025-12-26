@@ -32,7 +32,6 @@ cat ca.conf
 ---
 
 ## 2) Create the Certificate Authority (CA)
-
 Generate the CA private key and self-signed root certificate:
 
 ```bash
