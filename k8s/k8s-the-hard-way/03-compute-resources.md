@@ -1,5 +1,4 @@
 # Provisioning Compute Resources
-
 Kubernetes requires a set of machines to host the Kubernetes control plane and the worker nodes where containers are ultimately run. In this lab you will provision the machines required for setting up a Kubernetes cluster.
 
 ## Machine Database
