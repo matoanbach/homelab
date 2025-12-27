@@ -1,5 +1,4 @@
 # Bootstrapping the etcd Cluster
-
 Kubernetes components are stateless and store cluster state in [etcd](https://github.com/etcd-io/etcd). In this lab you will bootstrap a single node etcd cluster.
 
 ## Prerequisites
