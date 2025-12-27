@@ -5,6 +5,7 @@ This lab provisions a **PKI (Public Key Infrastructure)** using **OpenSSL** to b
 All commands below are intended to be run from the **jumpbox** (Ubuntu 24.04 VM).
 
 ![K8s diagram](https://github.com/matoanbach/homelab/blob/main/k8s/assets/k8s-the-hard-way/ca-cert.svg)
+
 > **Note:** I run **all commands manually** (no `for` loops). The original tutorial uses loops; this README keeps everything explicit.
 
 ---
@@ -14,9 +15,9 @@ All commands below are intended to be run from the **jumpbox** (Ubuntu 24.04 VM)
 Proxmox + Ubuntu VM layout (example):
 
 - `jumpbox` → `10.0.0.22`
-- `server`  → `10.0.0.23`
-- `node-0`  → `10.0.0.24`
-- `node-1`  → `10.0.0.25`
+- `server` → `10.0.0.23`
+- `node-0` → `10.0.0.24`
+- `node-1` → `10.0.0.25`
 
 ---
 
@@ -32,6 +33,7 @@ cat ca.conf
 ---
 
 ## 2) Create the Certificate Authority (CA)
+
 Generate the CA private key and self-signed root certificate:
 
 ```bash
@@ -51,9 +53,9 @@ openssl req -x509 -new -sha512 -noenc   -key ca.key -days 3653   -config ca.conf
 
 For each component, run:
 
-1) generate private key (`.key`)  
-2) generate CSR (`.csr`)  
-3) sign CSR with CA to produce certificate (`.crt`)
+1. generate private key (`.key`)
+2. generate CSR (`.csr`)
+3. sign CSR with CA to produce certificate (`.crt`)
 
 ### 3.1 admin
 
@@ -198,3 +200,13 @@ The following client certificates will be used in the next lab to generate kubec
 - (kubelet client creds as part of node config)
 
 Next: **05-kubernetes-configuration-files.md**
+
+## Commands Cheat Sheet
+
+| **Task**                               | **Command**                                                                                                                                       |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Generate CA Private Key**            | `openssl genrsa -out ca.key 4096`                                                                                                                 |
+| **Generate CA Certificate**            | `openssl req -x509 -new -sha512 -noenc -key ca.key -days 3653 -config ca.conf -out ca.crt`                                                        |
+| **Generate Private Key for Component** | `openssl genrsa -out <component>.key 4096`                                                                                                        |
+| **Generate CSR for Component**         | `openssl req -new -key <component>.key -sha256 -config ca.conf -section <component> -out <component>.csr`                                         |
+| **Sign Certificate with CA**           | `openssl x509 -req -days 3653 -in <component>.csr -copy_extensions copyall -sha256 -CA ca.crt -CAkey ca.key -CAcreateserial -out <component>.crt` |
