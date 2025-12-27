@@ -103,6 +103,48 @@ Extract the component binaries from the release archives and organize them under
 rm -rf downloads/*gz
 ```
 
+```txt
+downloads
+├── client
+│   ├── etcdctl
+│   └── kubectl
+├── cni-plugins
+│   ├── bandwidth
+│   ├── bridge
+│   ├── dhcp
+│   ├── dummy
+│   ├── firewall
+│   ├── host-device
+│   ├── host-local
+│   ├── ipvlan
+│   ├── LICENSE
+│   ├── loopback
+│   ├── macvlan
+│   ├── portmap
+│   ├── ptp
+│   ├── README.md
+│   ├── sbr
+│   ├── static
+│   ├── tap
+│   ├── tuning
+│   ├── vlan
+│   └── vrf
+├── controller
+│   ├── etcd
+│   ├── kube-apiserver
+│   ├── kube-controller-manager
+│   └── kube-scheduler
+└── worker
+    ├── containerd
+    ├── containerd-shim-runc-v2
+    ├── containerd-stress
+    ├── crictl
+    ├── ctr
+    ├── kubelet
+    ├── kube-proxy
+    └── runc
+```
+
 Make the binaries executable.
 
 ```bash
