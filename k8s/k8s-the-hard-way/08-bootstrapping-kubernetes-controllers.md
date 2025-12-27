@@ -1,5 +1,4 @@
 # Bootstrapping the Kubernetes Control Plane
-
 In this lab you will bootstrap the Kubernetes control plane. The following components will be installed on the `server` machine: Kubernetes API Server, Scheduler, and Controller Manager.
 
 ## Prerequisites
