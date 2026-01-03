@@ -1,4 +1,5 @@
 # 2.1 Understanding What to install
+
 - Install 3 VM's, using RHEL (recommended)  or CentOS Stream
   - control.example.local (Server with GUI)
   - ansible1.example.local (minimal install)
@@ -52,7 +53,8 @@ ansible -i inventory all -u student -k -b -m shell -a 'echo "ansible ALL=(ALL) N
 ```
 
 # 2.5 Managing Static Inventory
-## Managin Static Inventory
+## Managing Static Inventory
+
 - In a minimal form, a static inventory is a list of host names and/or IP addresses that can be managed by Ansible
 - Hosts can be grouped in inventory to make it easy to address multiple hosts at once
 - A host can be a member of multiple groups
