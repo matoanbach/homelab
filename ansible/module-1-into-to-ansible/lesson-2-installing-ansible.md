@@ -142,6 +142,7 @@ fileservers
 - Ensure this account has been configured with the appropriate `sudo` privileges
 
 # 2.7 ansible-navigator Settings
+
 - After installing `ansible-navigator`, it needs additional setup
 - To provide this setup, you'll need to login to a container registry
 - This is because `ansible-navigator` uses an execution environment, which is based on a container image
