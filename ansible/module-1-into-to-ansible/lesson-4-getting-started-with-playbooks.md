@@ -1,5 +1,6 @@
 # 4.1 Using YAML to Write Playbooks
 ## Why playbooks
+
 - Ad-hoc commands can be used to run one or a few tasks
 - Ad-hoc commands are convenient to test, or when a complete managed infrastructure hasn't been set up yet
 - Ansible playbooks are used to run multiple tasks against managed hosts in a scripted way
