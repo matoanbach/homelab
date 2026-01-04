@@ -29,6 +29,7 @@
   - `ansible-playbook site.yml -e "web_package=apache"`
 
 # 5.2 Using Variables in Playbooks
+
 - Variables can be defined in a vars section in the beginning of a play
     ```yaml
     - hosts: all
