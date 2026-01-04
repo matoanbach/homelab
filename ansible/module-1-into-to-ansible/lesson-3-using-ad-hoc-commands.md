@@ -1,4 +1,5 @@
 # 3.1 Exploring Modules and Content Collections
+
 - In ansible 2.9 and ealier, thousands of modules were provided
 - Since ansible 2.10, only essential modules are provided in the ansible-core package
 - Additional modules are provided through content collections
