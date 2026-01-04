@@ -129,6 +129,7 @@ users:
 - To refer to custom facts, use `ansible_facts.ansible_local`, not `ansible_facts.local`
 
 # 6.5 Understanding Variables
+
 - Variables set in a playbook only exist in the specific play where they are defined
 - Variables can get a playbook scope by defining them as follows:
   - Through host or host group
