@@ -153,6 +153,7 @@ collections:
   - `ansible all -m copy -a 'content="hello world" dest=/etc/motd'`
 
 # 3.7 Idempotency
+
 - Idempotency in Ansible means that no matter the current state of the managed node, running an Ansible module should always give the same result
 - The result is that the desired state as expressed by the module should be implemented
 - If the currentstate already matches the desired state, nothing should happen
