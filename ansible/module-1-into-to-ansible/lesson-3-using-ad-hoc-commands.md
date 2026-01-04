@@ -27,6 +27,7 @@
 
 # 3.2 Learning How to Use Modules
 ## Getting Help about Modules
+
 - `ansible-doc` provides documentation about all aspects of Ansible
 - Different types of items are documented, see `ansible-doc --help` for an overview
 - If no type is specified, the module is used as the default type
