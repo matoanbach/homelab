@@ -119,6 +119,7 @@
 ```
 
 # 5.7 Using Vault to Manage Sensitive Values
+
 ```yaml
 ---
 - name: variable files
