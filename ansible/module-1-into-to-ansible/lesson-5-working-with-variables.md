@@ -1,4 +1,5 @@
 # 5.1 Understanding Variables
+
 - A variable is a label that is assigned to a specific value to make it easy to refer to that value throughout the playbook
 - Variables can be defined by administrators at different levels
 - A fact is a special type of variable, that refers to a current state of an Ansible-managed system
@@ -21,7 +22,7 @@
 ## Variable Precedence
 - Variables can be set with different types of scope
   - Global Scope: this is when a variable is set from inventory or the command line
-  - Play Scope: this is applied when it is set from a play
+  - Play Scope: this is applied when it is set from a playbook
   - Host Scope: this is applied when set in inventory or using a host variable inclusion file
 - When the same variable is set at different levels, the most specific level gets precedence
 - When a variable is set from the command line, it has highest precedence
