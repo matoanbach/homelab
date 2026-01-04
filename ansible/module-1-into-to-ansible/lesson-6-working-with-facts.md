@@ -22,7 +22,6 @@
 - Ensure that each managed host has an `/etc/hosts` file that allows for name resolution between all managed hosts
 
 # 6.2 Using Multi-tier Variables
-
 - In Ansible 2.4 and before, Ansible facts were stored as individual variables, such as `ansible_hostname` and `ansible_interfaces`, containing different sub-variables stored in a dictionary
 - To refer to the next-tier variables, dots were used as a separator: `ansible_date_time.date`
 - In Ansible 2.5 and later, all facts are sotred in one dictionary variable with the name `ansible_facts` , and referring to specific facts happens in a differnt way: `ansible_facts[hostname]`
