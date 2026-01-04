@@ -67,6 +67,7 @@
 ```
 
 # 3.3 Installing Content Collections
+
 ## Collections
 - Regardless of whether you're using just Ansible Core, or `ansible-navigator` in AAP, you'll always have access to one content collection: `ansible.builtin`
 - To get access to more collections, you may want to define and use a custom execution environment (which is not a part of the EX294 objectives)
@@ -112,6 +113,7 @@
 - `ansible-galaxy collection list`
 
 # 3.4 Using requirements.yml
+
 ## collections/requirements.yml
 - A requirements.yml can be provided in the current project directory to list all collections that are needed in the project
 - It lists all required collections, and installs them using `ansible-galaxy collections install -r collections/requirements.yml -p collections`
