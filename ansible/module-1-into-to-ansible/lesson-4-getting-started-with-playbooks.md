@@ -34,6 +34,7 @@
 ```
 
 # 4.2 Running Playbooks
+
 ## Running Your First Playbook
 - Run `ansible-playbook vsftpd.yml` to run the playbook
 - Notice that a successfuly run requires the inventory and become parameters to be set correctly, and also requires access to an inventory file
