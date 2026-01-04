@@ -55,6 +55,7 @@
 - If the variable is the first element, using quotes is mandatory: `"{{ web_package }}"`
 
 # 5.3 Including Variables
+
 ## Includes
 - While writing playbooks, it is good practice not to include site specific data in the playbooks
 - Playbooks that define variables within the playbook are less portable
