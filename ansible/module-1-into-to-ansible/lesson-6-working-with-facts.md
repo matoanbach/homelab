@@ -1,4 +1,5 @@
 # 6.1 Understanding Facts
+
 - Ansible Facts are variables that are automatically set and discovered by Ansible on managed hosts
 - Facts contain information about hosts that can be used in conditionals
   - Available memory
