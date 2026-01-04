@@ -115,6 +115,7 @@ users:
 - Check `ansible_mounts` in the facts, which actually presents a list of dictionaries
 
 # 6.4 Defining Custom Facts
+
 - Host (inventory) variables exist on the control machine and the host itself doesn't know about them
 - Custom facts allow administrators to dynamically generate variables which are on the host stored as facts
 - custom facts are stored in an ini or json file in the `/etc/ansible/facts.d` directory on the managed host
