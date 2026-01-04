@@ -64,6 +64,7 @@
 - The variables file itself contains variable defintions as `key: value`
 
 # 5.4 Managing Host Variables
+
 - Host variables are specific to a host only
 - They are defined in a YAML file that has the name of the inventory hostname and are stored in the `host_vars` directory in the current project directory
 - To apply variables to host groups, a file with the inventory name of the host group should be defined in the `group_vars` directory in the current project directory
