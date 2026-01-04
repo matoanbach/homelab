@@ -91,6 +91,7 @@
 ```
 
 # 5.6 Using Register to Set Variables
+
 - Some variables are built in and cannot be used for anything else
     - `hostvars`: a dictionary that contains all variables that apply to a specific
     - `inventory_hostname`: inventory name of the current host
