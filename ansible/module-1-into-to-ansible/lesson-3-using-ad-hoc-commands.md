@@ -113,7 +113,6 @@
 - `ansible-galaxy collection list`
 
 # 3.4 Using requirements.yml
-
 ## collections/requirements.yml
 - A requirements.yml can be provided in the current project directory to list all collections that are needed in the project
 - It lists all required collections, and installs them using `ansible-galaxy collections install -r collections/requirements.yml -p collections`
