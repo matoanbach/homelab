@@ -138,6 +138,7 @@ collections:
 
 
 # 3.6 Exploring Essential Modules
+
 ## Essential Modules
 - `ansible.builtin.ping`: verifies host availability
   - `ansible all -m ping`
