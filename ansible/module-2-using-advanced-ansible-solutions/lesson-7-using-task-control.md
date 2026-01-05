@@ -5,6 +5,7 @@
 - `handlers`: used to perform a task only if triggered by another task that has changed something
 
 # 7.2 Writing Loops
+
 - The `loop` keyword allows you to iterate through a simple list of items
 - Before Ansible 2.5, the `with_` keyword was used instead
 ```yaml
@@ -15,6 +16,18 @@
   loop:
     - vsftpd
     - httpd
+```
+
+```yaml
+- name: start some services
+  vars:
+    items:
+    - httpd
+    - vsftpd
+  service:
+    name: "{{ item }}"
+    state: started
+  loop: "{{ items }}"
 ```
 
 ## Using Dictionaries in Loops
