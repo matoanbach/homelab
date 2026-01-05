@@ -1,4 +1,5 @@
 # 7.1 Understanding Conditionals
+
 - `loop`:  allows you to loop over a list of items instead of calling the same task repeatedly
 - `when`: performs conditional task execution based on the value of specific variables
 - `handlers`: used to perform a task only if triggered by another task that has changed something
