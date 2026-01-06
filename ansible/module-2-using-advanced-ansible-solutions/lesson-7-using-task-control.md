@@ -57,6 +57,7 @@
 - Loop up "Migrating from with_X to loop" in the Ansible documentation for instructions on how to migrate
 
 # 7.3 Using When
+
 ## Example Conditionals
 - `ansible_machine == "x86_64"` - Variable contains string value
 - `ansible_distribution_version == "8"` - Variable contains string value
