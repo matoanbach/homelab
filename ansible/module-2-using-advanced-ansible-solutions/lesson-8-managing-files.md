@@ -168,6 +168,7 @@ become_ask_pass = False
 ```
 
 # 8.5 Managing SELinux File Context
+
 - `ansible.builtin.file`: sets attributes to files, including SELinux
 - `community.general.sefcontext`: manages SELinux file context in the SELinux Policy (but not on files)
 - `ansible.builtin.command`: required to run `restorecon` after `sefcontext`
