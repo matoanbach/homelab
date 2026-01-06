@@ -245,6 +245,7 @@ handlers:
 ```
 
 ## block2.yml
+
 ```yml
 ---
 - name: using blocks
