@@ -202,6 +202,8 @@ handlers:
 - This module specifis option to influence the Ansible internal execution order
   - `flush_handlers`: will run all notified handlers now
   - `refresh_inventory`: refreshes inventory at the moment it is called
+  - `clear_facts`: remove all facts
+  - `end_host`: ends playbook execution for this host
 
 # 7.6 Using Blocks
 - Blocks can be used in error condition handling
