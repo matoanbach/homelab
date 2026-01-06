@@ -338,6 +338,7 @@ handlers:
 ```
 
 # 7.8 Managing Changed Status
+
 - Ansilble looks at the exit status of commands it runs
 - Idempotent modules can make a difference between "changed" and "no changed required"
 - Non-idempotent modules like `command` and `shell` cannot do that, and only work with an exit status of 0 or 1, which is next processed by Ansible to determine module success or failure
