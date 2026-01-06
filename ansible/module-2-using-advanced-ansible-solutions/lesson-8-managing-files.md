@@ -84,6 +84,7 @@
 ```
 
 # 8.3 Using Jinja2 Templates
+
 - `lineinfile` and `blockinfile` can be used to apply simple modifications to files
 - For more advanced modifications, use Jinja2 templates
 - Jinja2 is a templating engine for Python
