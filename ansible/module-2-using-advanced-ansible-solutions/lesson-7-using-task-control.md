@@ -276,6 +276,7 @@ handlers:
 ```
 
 # 7.7 Managing Task Failure
+
 - Ansible looks at the exit status of a task to determine whether it has failed
 - When any task fails, Ansible aborts the rest of the play on that host and continues with the next host
 - Different solutions can be used to change that behavior
