@@ -133,8 +133,8 @@ become_method = sudo
 become_user = root
 become_ask_pass = False 
 ```
-# 8.4 Applying Conditionals in Jinja2 Templates
 
+# 8.4 Applying Conditionals in Jinja2 Templates
 ## Using for Statements
 - Jinja2 templates can loop over the value of a variable using a for statement
 
