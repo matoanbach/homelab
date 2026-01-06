@@ -46,6 +46,7 @@
 ```
 
 # 8.2 Copying Files to and From Managed Hosts
+
 - Different Modules are available for managing files
   - `ansible.builtin.copy`: copies a file from a local machine to a location on a managed host
   - `ansible.builtin.fetch`: used to fetch a file from a remote machine and store in on the management node
