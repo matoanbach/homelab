@@ -106,7 +106,8 @@
 ```
 
 # 7.4 Using When and Register to Check Multiple Conditions
-## TEsting Multiple Conditions
+
+## Testing Multiple Conditions
 - `when` can be used to test multiple conditions as well
 - Use `and` or `or` and group the conditions with parentheses
 ```yaml
