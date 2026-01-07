@@ -185,6 +185,7 @@ url = https://galaxy.ansible.com
 
 # 9.8 Using the TimeSync RHEL System Role
 # 9.9 Using the SELinux RHEL System Role
+
 ## Demo
 ```yml
   36  ls /usr/share/doc/rhel-system-roles/selinux
