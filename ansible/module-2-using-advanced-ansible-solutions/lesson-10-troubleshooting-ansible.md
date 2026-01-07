@@ -1,4 +1,5 @@
 # 10.1 Ansible and Logging
+
 ## Troubleshooting without Logs
 - Relevant Ansible processing information is often written to STDOUT while using the `ansible-playbook` command
 - When using `ansible-navigator`, add the option `-m stdout`
