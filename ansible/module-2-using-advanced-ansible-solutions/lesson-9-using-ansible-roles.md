@@ -144,6 +144,7 @@
 ```
 
 # 9.6 Using RHEL Sytem Roles
+
 - RHEL system roles are provided as an easy interface to manage specific parameters between different RHEL versions
 - Use `dnf install -y rhel-system-roles` to install them
 - RHEL system roles come with sample playbooks in `/usr/share/doc/rhel-system-roles` if installed from the RPM package
