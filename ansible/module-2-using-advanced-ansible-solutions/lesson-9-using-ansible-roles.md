@@ -157,6 +157,7 @@
 - Tip: Best install rhel-system-roles using `dnf install rhel-system-roles`. This installs them to `/usr/share/ansible/roles` and `/usr/share/ansible/collections`, which ensure easy access from `ansible-navigator` as well as the `ansible-playbook` utility and also provides useful examples in `/usr/share/doc` 
 
 # 9.7 Configuring Ansible Roles and Colletion Sources
+
 - The `ansible-galaxy` command fetches collections from `https://galaxy.ansible.com`
 - To configure alternative sources and manages source priority, modify the ansible.cfg file
 - To access content collections from automation hub, you need to get an authentication token
