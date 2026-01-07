@@ -53,6 +53,7 @@ ansible-navigator:
 - For instance: `ansible-lint` will complain if you don't use FQCN while referring to modules; this may be something you deliverately do differently
 
 # 10.4 Using Check Mode
+
 - Use the `--check` option while running a playbook to perform check mode; this will show what would happen when running the playbook without actually changing anything
   - Modules in the playbook must support check mode
   - Check mode doesn't always work well in conditionals
