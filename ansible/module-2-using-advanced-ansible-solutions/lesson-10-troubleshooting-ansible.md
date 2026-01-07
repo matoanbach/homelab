@@ -26,6 +26,7 @@ ansible-navigator:
 ```
 
 # 10.2 Using the debug Module
+
 - The `debug` module is useful for analyzing variables
 - While using this module, you can use the `verbosity` argument to specify when it should run:
   - Include `verbosity: 2` if you only want to run the `debug` module when the command was started with the `-vv` options
