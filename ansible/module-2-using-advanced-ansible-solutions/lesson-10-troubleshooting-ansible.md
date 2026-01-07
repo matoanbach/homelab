@@ -32,6 +32,7 @@ ansible-navigator:
   - Include `verbosity: 2` if you only want to run the `debug` module when the command was started with the `-vv` options
 
 # 10.3 Checking Playbooks for Issues
+
 - To check a playbook for errors, use the `--syntax-check` option with either the `ansible-playbook` or the `ansible-navigator` command
 - Also consider avoiding errors by applying some best practices
 
