@@ -61,6 +61,7 @@
 - Select `redhat.insights` to see some roles (use **:21** to address numbers higher than 9)
 
 # 9.4 Writing Playbooks that Use Roles
+
 ## Using Roles in Playbooks
 - Roles can be used in different ways
   - Using a `roles:` section in the play header
