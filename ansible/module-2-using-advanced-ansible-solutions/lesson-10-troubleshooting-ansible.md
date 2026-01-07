@@ -66,6 +66,7 @@ ansible-navigator:
   - `ansible-playbook --check --diff myplaybook.yml`
 
 # 10.5 Using Modules for Troubleshooting and Testing
+
 ## Modules for Checking
 - `uri`: checks content that is returned from a specific URL
 - `script`: runs a script from the control node on the managed hosts
