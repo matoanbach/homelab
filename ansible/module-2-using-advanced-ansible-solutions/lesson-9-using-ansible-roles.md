@@ -54,6 +54,7 @@
 
 # 9.3 Understanding Roles in Ansible Content Collections
 ## Roles and Ansible Content Collections
+
 - Roles may be distributed through Ansible Content Collections
 - This is not commonly done
 - When roles are provided through collections, you'll find them using `ansible-navigator collections`
