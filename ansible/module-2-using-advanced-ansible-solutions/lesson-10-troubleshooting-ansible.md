@@ -83,6 +83,7 @@ ansible-navigator:
   - ...
 
 # 10.6 Troubleshooting Connectivity Issues
+
 - Connection issues might include the following
   - Issues setting up the physical connection
   - Issues running tasks as the target user
