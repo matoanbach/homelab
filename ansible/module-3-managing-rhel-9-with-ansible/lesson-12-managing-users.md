@@ -74,7 +74,8 @@
 ```
 
 # 12.3 Managing Encrypted Passwords
-- On linux, the hash of the encrypted  user password is stored in `/etc/shadow`
+
+- On linux, the hash of the encrypted user password is stored in `/etc/shadow`
 - This hash looks like `$6$G9dU2zwfEJn2gQD/$TmlbTElEKom/DLxs604vMIjZVDvWLKzC8TmQiBMSmLWurpdyu1DJxUnM4C0ncaoCD/uWn/8AyZxcvwN5JNt4x0`
 - It consists of 3 parts:
   - The hashing algorithm that is used
