@@ -84,7 +84,8 @@
 - To create an encrypted password, a random salt is used to ensure that two users that have identical passwords would not have identical entries in `/etc/shadow`
 - This salt and the unencrypted password are combine and encrypted, which generates the encrypted hash that is stored in `/etc/shadow`
 
-# 12.4 Creating Encrypted Passwords in Ansible
+## Creating Encrypted Passwords in Ansible
+
 - The `ansible.builtin.user` module does not generate encrypted passwords
 - To generate an encrypted password, an external utility must be used to generate an encrypted string
 - Next, the encrypted string can be used in a variable to set the password
@@ -109,6 +110,7 @@
 ```
 
 # 12.4 Managing Sudo Privileges
+
 ## Managing Sudo
 - Ansible doesn't offer a specific module for managing `sudo` privileges
 - Use generic modules instead:
