@@ -1,4 +1,5 @@
 # 11.1 Managing Packages
+
 ## Understanding Software Management Tasks
 - To manage software on RHEL systems, different tasks need to be managed
 - Systems need to be subscribed
