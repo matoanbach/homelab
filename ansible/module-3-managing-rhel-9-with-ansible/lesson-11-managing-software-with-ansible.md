@@ -70,6 +70,7 @@
 - If the module argument `gpgcheck: yes` is used, the `ansible.builtin.rpm_key` module must be used to install the GPG key
 
 # 11.3 Managing Subscriptions
+
 ## Managing RHEL Subscriptions
 - To work with RHEL, you need to use your subscription
 - Free RHEL subscriptions are available through https://developers.redhat.com
