@@ -1,0 +1,10 @@
+{"severity":"DEBUG","time":"2026-03-31T00:46:48.989Z","correlation_id":null,"event":"setup","model":"ActiveRecord::Base","start_service_discovery":true}
+{"severity":"DEBUG","time":"2026-03-31T00:46:49.011Z","correlation_id":null,"event":"setup","model":"Ci::ApplicationRecord","start_service_discovery":true}
+{"severity":"DEBUG","time":"2026-03-31T00:47:20.358Z","correlation_id":null,"event":"setup","model":"ActiveRecord::Base","start_service_discovery":true}
+{"severity":"DEBUG","time":"2026-03-31T00:47:20.384Z","correlation_id":null,"event":"setup","model":"Ci::ApplicationRecord","start_service_discovery":true}
+{"severity":"DEBUG","time":"2026-03-31T00:47:52.809Z","correlation_id":null,"event":"setup","model":"ActiveRecord::Base","start_service_discovery":false}
+{"severity":"DEBUG","time":"2026-03-31T00:47:52.810Z","correlation_id":null,"event":"setup","model":"ActiveRecord::Base","start_service_discovery":true}
+{"severity":"DEBUG","time":"2026-03-31T00:47:52.812Z","correlation_id":null,"event":"setup","model":"Ci::ApplicationRecord","start_service_discovery":false}
+{"severity":"DEBUG","time":"2026-03-31T00:47:52.813Z","correlation_id":null,"event":"setup","model":"Ci::ApplicationRecord","start_service_discovery":true}
+{"severity":"DEBUG","time":"2026-03-31T00:50:03.841Z","correlation_id":null,"event":"setup","model":"ActiveRecord::Base","start_service_discovery":true}
+{"severity":"DEBUG","time":"2026-03-31T00:50:03.844Z","correlation_id":null,"event":"setup","model":"Ci::ApplicationRecord","start_service_discovery":true}

@@ -1,0 +1,11 @@
+2026-03-30_20:11:57.52146 ts=2026-03-30T20:11:57.520Z caller=server.go:74 level=info msg="Established new database connection" fingerprint=/var/opt/gitlab/postgresql:5432
+2026-03-30_20:11:57.58912 ts=2026-03-30T20:11:57.588Z caller=postgres_exporter.go:613 level=info msg="Semantic version changed" server=/var/opt/gitlab/postgresql:5432 from=0.0.0 to=16.11.0
+2026-03-30_20:12:46.18357 ts=2026-03-30T20:12:46.183Z caller=main.go:86 level=warn msg="Error loading config" err="Error opening config file \"postgres_exporter.yml\": open postgres_exporter.yml: no such file or directory"
+2026-03-30_20:12:46.18386 ts=2026-03-30T20:12:46.183Z caller=proc.go:285 msg="Excluded databases" databases=[]
+2026-03-30_20:12:46.18394 ts=2026-03-30T20:12:46.183Z caller=main.go:99 level=warn msg="The extended queries.yaml config is DEPRECATED" file=/var/opt/gitlab/postgres-exporter/queries.yaml
+2026-03-30_20:12:46.18483 ts=2026-03-30T20:12:46.184Z caller=tls_config.go:274 level=info msg="Listening on" address=127.0.0.1:9187
+2026-03-30_20:12:46.18492 ts=2026-03-30T20:12:46.184Z caller=tls_config.go:277 level=info msg="TLS is disabled." http2=false address=127.0.0.1:9187
+2026-03-30_20:12:57.47780 ts=2026-03-30T20:12:57.477Z caller=server.go:74 level=info msg="Established new database connection" fingerprint=/var/opt/gitlab/postgresql:5432
+2026-03-30_20:12:57.48969 ts=2026-03-30T20:12:57.489Z caller=postgres_exporter.go:613 level=info msg="Semantic version changed" server=/var/opt/gitlab/postgresql:5432 from=0.0.0 to=16.11.0
+2026-03-30_23:01:45.43060 ts=2026-03-30T23:01:45.281Z caller=collector.go:202 level=error msg="collector failed" name=database duration_seconds=12.693327798 err="pq: canceling statement due to statement timeout"
+2026-03-30_23:43:41.80760 ts=2026-03-30T23:43:41.710Z caller=collector.go:202 level=error msg="collector failed" name=database duration_seconds=61.704369237 err="pq: canceling statement due to statement timeout"

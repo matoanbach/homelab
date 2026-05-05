@@ -1,0 +1,11 @@
+Started by user [8mha:////4HOsCcZghkIJOaKAXpkwXyRvbvd+tCZAlkZ9NixBFjIWAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzeEgZu/dLi1CL9xJTczDwACG0V4sAAAAA=[0mJenkins Admin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/my-first-job
+[my-first-job] $ /bin/sh -xe /tmp/jenkins16407802204295267821.sh
++ NAME=TOAN
++ date
++ echo Hello, TOAN, Current date: Sun Mar 29 15:48:59 UTC 2026
+Hello, TOAN, Current date: Sun Mar 29 15:48:59 UTC 2026
++ /tmp/script.sh TOAN BACH
+Hello, TOAN BACH
+Finished: SUCCESS
