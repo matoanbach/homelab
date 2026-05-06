@@ -1,0 +1,98 @@
+---
+apiVersion: v1alpha1
+kind: AgentConfig
+metadata:
+  name: ocp
+
+rendezvousIP: 10.0.0.23
+
+hosts:
+  - hostname: ocp-master-1
+    role: master
+    rootDeviceHints:
+      deviceName: /dev/disk/by-path/pci-0000:01:01.0-scsi-0:0:0:0
+    interfaces:
+      - name: ens18
+        macAddress: BC:24:11:44:22:32
+    networkConfig:
+      interfaces:
+        - name: ens18
+          type: ethernet
+          state: up
+          mac-address: BC:24:11:44:22:32
+          ipv4:
+            enabled: true
+            address:
+              - ip: 10.0.0.23
+                prefix-length: 24
+            dhcp: false
+      dns-resolver:
+        config:
+          server:
+            - 10.0.0.20
+      routes:
+        config:
+          - destination: 0.0.0.0/0
+            next-hop-address: 10.0.0.1
+            next-hop-interface: ens18
+            table-id: 254
+
+  - hostname: ocp-master-2
+    role: master
+    rootDeviceHints:
+      deviceName: /dev/disk/by-path/pci-0000:01:01.0-scsi-0:0:0:0
+    interfaces:
+      - name: ens18
+        macAddress: BC:24:11:44:22:35
+    networkConfig:
+      interfaces:
+        - name: ens18
+          type: ethernet
+          state: up
+          mac-address: BC:24:11:44:22:35
+          ipv4:
+            enabled: true
+            address:
+              - ip: 10.0.0.24
+                prefix-length: 24
+            dhcp: false
+      dns-resolver:
+        config:
+          server:
+            - 10.0.0.20
+      routes:
+        config:
+          - destination: 0.0.0.0/0
+            next-hop-address: 10.0.0.1
+            next-hop-interface: ens18
+            table-id: 254
+
+  - hostname: ocp-master-3
+    role: master
+    rootDeviceHints:
+      deviceName: /dev/disk/by-path/pci-0000:01:01.0-scsi-0:0:0:0
+    interfaces:
+      - name: ens18
+        macAddress: BC:24:11:44:22:36
+    networkConfig:
+      interfaces:
+        - name: ens18
+          type: ethernet
+          state: up
+          mac-address: BC:24:11:44:22:36
+          ipv4:
+            enabled: true
+            address:
+              - ip: 10.0.0.25
+                prefix-length: 24
+            dhcp: false
+      dns-resolver:
+        config:
+          server:
+            - 10.0.0.20
+      routes:
+        config:
+          - destination: 0.0.0.0/0
+            next-hop-address: 10.0.0.1
+            next-hop-interface: ens18
+            table-id: 254

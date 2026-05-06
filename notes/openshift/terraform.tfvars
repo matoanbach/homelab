@@ -1,0 +1,5 @@
+proxmox_host             = "10.0.0.19"
+target_node              = "turtle"
+proxmox_api_token_id     = ""
+proxmox_api_token_secret = ""
+bridge                   = "vmbr0"
