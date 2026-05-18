@@ -1,0 +1,34 @@
+# Network Policies
+```yml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metedata:
+    name: db-policy
+spec:
+    podSelector:
+        matchLabels:
+            role: db
+    policyTypes:
+    - Ingress
+    - Egress
+    ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+                name: api-pod
+        - namespaceSelector:
+            matchLabels:
+                kubernetes.io/metadata.name: prod
+        - ipBlock:
+            cidr: 192.168.5.10/32
+      ports:
+        - protocol: TCP
+          port: 3306
+    egress:
+    - to:
+        - ipBlock:
+          cidr: 192.168.5.10/32
+      ports:
+        - protocol: TCP
+          port: 80
+```
