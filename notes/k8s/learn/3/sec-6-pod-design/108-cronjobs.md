@@ -1,0 +1,20 @@
+# Cronjobs
+- cron-job-definition.yml
+```yml
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+    name: reporting-cron-job
+spec:
+    schedule: "*/1 * * * *"
+    jobTemplate:
+        spec:
+            completions: 3
+            parallelism: 3
+            template:
+                spec:
+                    containers:
+                        - name: reporting-tool
+                          image: reporting-tool
+                    restartPolicy: Never
+```
