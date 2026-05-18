@@ -1,0 +1,20 @@
+# Node Affinity
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+    name: myapp-pod
+spec:
+    containers:
+        - name: data-processor
+          image: data-processor
+    affinity:
+        nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                - matchExpressions:
+                    - key: size
+                      operator: In
+                      values:
+                        - Large
+```
