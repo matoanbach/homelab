@@ -1,0 +1,43 @@
+# Readiness Probe
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+    name: simple-webapp
+    labels:
+        name: simple-webapp
+spec:
+    containers:
+    - name: simple-webapp
+      image: simple-webapp
+      ports:
+        - containerPort: 8080
+    readinessProbe:
+        httpGet:
+            path: /api/ready
+            port: 8080
+```
+
+```yml
+readinessProbe:
+    httpGet:
+        path: /api/ready
+        port: 8080
+    initialDelaySeconds: 10
+    periodSeconds: 5
+    failureThreshold: 8
+```
+
+```yml
+readinessProbe:
+    tcpSocket:
+        port: 3306
+```
+
+```yml
+readinessProbe:
+    exec:
+        command:
+            - cat
+            - /app/is_ready
+```
