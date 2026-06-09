@@ -1,0 +1,29 @@
+[all]
+%{ for name, node in nodes ~}
+${name} ansible_host=${node.ip} ip=${node.ip} ansible_user=${ssh_user}%{ if node.role == "control" } etcd_member_name=etcd1%{ endif }
+%{ endfor ~}
+
+[kube_control_plane]
+%{ for name, node in nodes ~}
+%{ if node.role == "control" ~}
+${name}
+%{ endif ~}
+%{ endfor ~}
+
+[etcd]
+%{ for name, node in nodes ~}
+%{ if node.role == "control" ~}
+${name}
+%{ endif ~}
+%{ endfor ~}
+
+[kube_node]
+%{ for name, node in nodes ~}
+%{ if node.role == "worker" ~}
+${name}
+%{ endif ~}
+%{ endfor ~}
+
+[k8s_cluster:children]
+kube_control_plane
+kube_node
