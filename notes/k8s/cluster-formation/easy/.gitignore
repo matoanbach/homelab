@@ -1,0 +1,5 @@
+/*
+!/.gitignore
+!/docs/
+!/terraform.tf
+!/inventory.ini.tftpl
