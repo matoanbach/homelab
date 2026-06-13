@@ -1,153 +1,95 @@
 # Homelab
 
-## Overview
+This repository documents a self-hosted homelab built around Proxmox, Kubernetes, automation, and systems practice.
 
-This repository documents my personal homelab.
+The current primary project in this repo is a Kubernetes platform running on Proxmox with GitOps, LAN load balancing, external access through Cloudflare Tunnel, and a separate Jenkins VM for CI.
 
-I use this homelab to practice infrastructure, systems, platform, and automation skills in a hands-on environment. Instead of only learning concepts from courses or documentation, I use this lab to build real setups, troubleshoot failures, rebuild environments, and document what I learn along the way.
+## Current Kubernetes Platform
 
-At the center of the lab is a Proxmox host that I use to run virtual machines for Linux administration, networking exercises, Kubernetes, OpenShift, Terraform, Ansible, and Jenkins experiments.
+- Proxmox host: `turtle` at `10.0.0.19`
+- Cluster build path: Terraform + Ubuntu cloud-init template + Kubespray
+- Cluster nodes:
+  - `k8s-cp1` `10.0.0.101`
+  - `k8s-w1` `10.0.0.102`
+  - `k8s-w2` `10.0.0.103`
+- External app path: `Cloudflare Tunnel VM -> ingress-nginx LoadBalancer 10.0.0.240 -> app services`
+- Delivery path: `git push -> GitHub -> Jenkins -> GHCR -> Git update -> Argo CD -> Kubernetes`
 
-This repo serves two purposes:
+## Architecture Diagrams
 
-- a working knowledge base for what I am learning
-- a place to keep the configs, notes, and setup files that support the lab
+### Infrastructure
 
-## Goals
+![Homelab Kubernetes Infrastructure](docs/diagrams/homelab-infrastructure.svg)
 
-The main goal of this homelab is skill development through repetition and practice.
+### CI/CD And GitOps
 
-I use it to improve in areas such as:
+![CI/CD and GitOps Flow](docs/diagrams/cicd-gitops-flow.svg)
 
-- Proxmox virtualization
-- Linux system administration
-- Red Hat and RHCSA-style tasks
-- networking fundamentals and troubleshooting
-- Infrastructure as Code with Terraform
-- configuration management with Ansible
-- Kubernetes cluster setup and operations
-- OpenShift installation and administration
-- Jenkins and CI/CD workflows
-- documenting builds and operational lessons learned
+## Current Architecture
 
-The focus is not just getting something to work once. The focus is learning how to build it again, automate it, and understand why it works.
+### Platform Foundation
 
-## Lab Hardware
+- Proxmox provides the base virtualization layer for the lab
+- Terraform provisions Kubernetes VMs from an Ubuntu 24.04 cloud-init template
+- Kubespray installs the Kubernetes cluster
+- `kubectl` and Helm are used from the Mac admin machine
 
-Current host hardware:
+### Network And Traffic Flow
 
-- Platform: Proxmox VE
-- Host: HP 840
-- Memory: 64 GB RAM
-- Storage: 500 GB
-- CPU: dual Intel Xeon E5-2660 v3
-- Per CPU: 10 cores @ 2.60 GHz
-- Total physical cores: 20
+- MetalLB provides bare-metal `LoadBalancer` IPs on the LAN
+- `ingress-nginx` is exposed at `10.0.0.240`
+- A separate `cloudflared` VM publishes that ingress entry through Cloudflare Tunnel
+- Application routing stays inside Kubernetes `Ingress` resources
 
-This gives me enough room to run multiple VMs for cluster, automation, and Linux administration practice inside one self-hosted environment.
+### Delivery And Operations Flow
 
-## What I Practice Here
+- Jenkins runs on its own Proxmox VM, outside the cluster
+- Jenkins handles CI, image builds, and Git updates
+- GHCR stores container images
+- Argo CD watches Git and applies desired state into the cluster
+- Longhorn provides persistent storage for stateful workloads
+- Sealed Secrets is the current GitOps-friendly secret workflow
+- Monitoring is provided by `kube-prometheus-stack`
 
-### Virtualization
+## Current Platform Components
 
-Proxmox is the foundation of the homelab. I use it to practice:
+Installed now:
 
-- creating and sizing VMs
-- attaching install media and boot images
-- bridge networking
-- storage allocation
-- rebuilding environments from scratch
-- planning repeatable VM layouts for clusters
+- Argo CD
+- ingress-nginx
+- MetalLB
+- Cloudflare Tunnel on a separate VM
+- Longhorn
+- Sealed Secrets
+- monitoring with `kube-prometheus-stack`
+- Jenkins on a separate VM
 
-### OpenShift on Proxmox
+Not current-state yet:
 
-One of the main hands-on projects in this repo is running OpenShift on Proxmox.
+- `cert-manager`
+- logging / Loki
+- first real application rollout
+- deeper security hardening phases
+
+## Current Focus
+
+The most active area in this repo is the self-hosted Kubernetes platform under `docs/` and `notes/k8s/cluster-formation/easy/`.
 
 That work includes:
 
-- planning a compact OpenShift cluster
-- configuring the agent-based installer
-- mapping static IPs, DNS, and node roles
-- using Terraform to automate provisioning on Proxmox
-- managing cluster-related setup files and notes
-
-This work lives under `notes/openshift/`.
-
-### Kubernetes
-
-I also use this homelab to practice Kubernetes outside of OpenShift.
-
-Topics in the repo include:
-
-- cluster formation
-- Kubespray-based setup
-- Helm
-- Kubernetes learning notes
-- comparing different ways to build and operate clusters
-
-This work lives under `notes/k8s/`.
-
-### Automation
-
-Automation is a major reason this homelab exists.
-
-I use it to practice:
-
-- Terraform for infrastructure provisioning
-- Ansible for configuration management
-- repeatable setup workflows
-- turning manual setup steps into documented and automated processes
-
-Relevant sections include `notes/terraform/`, `notes/ansible/`, and parts of `notes/openshift/`.
-
-### Linux and Red Hat Administration
-
-The homelab is also where I practice Linux administration, especially Red Hat-oriented tasks.
-
-That includes:
-
-- users, groups, and permissions
-- services and systemd
-- storage and filesystems
-- networking
-- shell scripting
-- troubleshooting
-- RHCSA-style exercises
-
-This work lives under `notes/red-hat-enterprise-linux/`.
-
-### Networking
-
-I use the lab to reinforce networking concepts that support systems and platform work.
-
-That includes:
-
-- IP addressing and subnetting
-- switching and VLAN concepts
-- routing fundamentals
-- DNS and basic name resolution planning
-- SSH and remote access
-- troubleshooting connectivity issues
-- CCNA-aligned study and lab mapping
-
-This work lives under `notes/networking/`.
-
-### Jenkins and CI/CD
-
-I also use the lab for Jenkins and automation workflow practice.
-
-That includes:
-
-- Jenkins setup experiments
-- Docker-based Jenkins files
-- pipeline-related practice material
-- automation-oriented CI/CD learning
-
-This work lives under `notes/jenkins/`.
+- Proxmox VM provisioning
+- Kubernetes cluster formation
+- ingress and LAN exposure design
+- Cloudflare Tunnel routing
+- Jenkins-based CI
+- GitOps delivery with Argo CD
+- storage, secrets, and monitoring setup
 
 ## Repository Structure
 
 ```text
+docs/                         Current Kubernetes platform documentation
+docs/diagrams/                Architecture diagrams and Excalidraw source
 notes/
   ansible/                    Ansible learning and automation notes
   images/                     Supporting images and assets
@@ -159,45 +101,44 @@ notes/
   terraform/                  Terraform-related notes and experiments
 ```
 
-## How to Read This Repo
+## Where To Start
 
-This is a working lab repository, not a polished product repository.
+- [Platform overview](docs/README.md)
+- [Argo CD](docs/argocd/README.md)
+- [NGINX Ingress Controller](docs/ingress-nginx/README.md)
+- [MetalLB](docs/metallb/README.md)
+- [Cloudflare Tunnel](docs/cloudflare-tunnel/README.md)
+- [Storage / Longhorn](docs/storage/README.md)
+- [Secrets management](docs/secrets/README.md)
+- [Monitoring](docs/monitoring/README.md)
+- [Jenkins](docs/jenkins/README.md)
+- [Cluster formation notes](notes/k8s/cluster-formation/easy/)
 
-That means it contains a mix of:
+## Other Lab Areas
 
-- step-by-step setup guides
-- architecture notes
-- study notes
-- lab experiments
-- infrastructure files
-- incomplete or evolving drafts
+This repo still includes broader homelab work outside the current Kubernetes platform focus:
 
-Some sections are structured tutorials. Some are rough working notes captured while learning or troubleshooting.
+- OpenShift on Proxmox
+- Linux and RHCSA-style administration practice
+- networking labs and study notes
+- Terraform and Ansible learning
+- Jenkins experiments and CI/CD practice
 
-## Current Focus
+## Lab Hardware
 
-The most infrastructure-heavy section in this repository is the OpenShift on Proxmox work under `notes/openshift/`.
-
-That area includes:
-
-- cluster design
-- network layout
-- installer inputs
-- Terraform configuration
-- provisioning workflow notes
+- Platform: Proxmox VE
+- Host: HP 840
+- Memory: 64 GB RAM
+- Storage: 500 GB
+- CPU: dual Intel Xeon E5-2660 v3
 
 ## Principles
 
-This homelab is mainly for learning, repetition, and operational understanding.
-
-- It is a practice environment, not a production environment.
-- The goal is to build, break, fix, and document.
-- Repeatability matters more than one-time success.
-- Documentation is part of the practice.
-- Sensitive values should be kept out of version-controlled files when possible.
+- Build, break, fix, and document
+- Prefer repeatable workflows over one-off success
+- Keep secrets and generated state out of Git
+- Use the repo as both working documentation and operational reference
 
 ## Summary
 
-This homelab is my personal practice environment for virtualization, Linux, networking, Kubernetes, OpenShift, automation, and CI/CD, all centered around a Proxmox host.
-
-It is where I learn by building.
+This homelab is a hands-on environment for learning infrastructure, Kubernetes, automation, networking, Linux administration, and CI/CD by building real systems and documenting the results.
